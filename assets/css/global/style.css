@@ -1,0 +1,493 @@
+/* CONFIGURAÇÕES GERAIS */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #111116;
+  color: #fffaf0;
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* CABEÇALHO */
+
+.cabecalho {
+  width: 100%;
+  height: 75px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 4%;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+
+  & .logo {
+    background-color: #3e397d;
+    color: #fff;
+
+    padding: 10px 32px;
+    border-radius: 50px;
+
+    font-size: 23px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+  }
+
+  & .menu {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+
+    & a {
+      font-size: 19px;
+      font-weight: 500;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: #9990ff;
+      }
+    }
+  }
+
+  & .orcamento-topo {
+    padding: 15px 10px;
+    border-radius: 12px;
+
+    background: linear-gradient(110deg,
+        #2920ca,
+        #285b46);
+
+    font-size: 15px;
+    font-weight: 700;
+
+    transition: transform 0.3s ease,
+      filter 0.3s ease;
+
+    &:hover {
+      transform: translateY(-3px);
+      filter: brightness(1.2);
+    }
+  }
+}
+
+/* HEADER EXTERNO */
+
+.header-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 75px;
+
+  border: none;
+  background: transparent;
+
+  z-index: 100;
+}
+
+
+/* SEÇÃO INICIAL */
+
+.inicio {
+  width: 100%;
+  min-height: 565px;
+  height: 100vh;
+  max-height: 850px;
+
+  display: flex;
+  align-items: center;
+
+  position: relative;
+  isolation: isolate;
+
+  overflow: hidden;
+
+  padding: 100px 4.5% 50px;
+
+  background:
+    radial-gradient(ellipse at 70% 42%,
+      rgba(48, 29, 150, 0.34),
+      transparent 48%),
+    radial-gradient(ellipse at 25% 100%,
+      rgba(47, 35, 105, 0.22),
+      transparent 55%),
+    #111116;
+}
+
+
+/* CONTEÚDO PRINCIPAL */
+
+.conteudo-inicio {
+  width: 100%;
+  max-width: 1250px;
+
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 50px;
+}
+
+
+/* TEXTO PRINCIPAL */
+
+.texto-inicio {
+  flex: 1;
+  max-width: 510px;
+
+  & h1 {
+    font-size: clamp(35px, 4.2vw, 46px);
+    font-weight: 800;
+    line-height: 1.28;
+
+    margin-bottom: 22px;
+  }
+
+  & p {
+    max-width: 370px;
+
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.35;
+
+    margin-bottom: 28px;
+  }
+}
+
+
+/* BOTÕES */
+
+.botoes-inicio {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: 30px;
+}
+
+.botao {
+  min-height: 47px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 12px 20px;
+
+  border-radius: 11px;
+
+  font-size: 16px;
+  font-weight: 500;
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease;
+}
+
+.botao:hover {
+  transform: translateY(-4px);
+}
+
+.botao-principal {
+  min-width: 200px;
+
+  background-color: #2918c4;
+  color: #fff;
+
+  &:hover {
+    background-color: #4030e5;
+  }
+}
+
+.botao-secundario {
+  min-width: 200px;
+
+  background-color: #fffaf0;
+  color: #171717;
+
+  &:hover {
+    background-color: #e8e3d8;
+  }
+}
+
+
+/* ILUSTRAÇÃO */
+
+.ilustracao {
+  flex: 1;
+
+  min-width: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Mantém espaço para a animação */
+  padding: 35px 0;
+}
+
+
+/* JANELA FLUTUANTE */
+
+.janela {
+  width: min(100%, 365px);
+  height: 273px;
+
+  position: relative;
+
+  background-color: #151515;
+
+  border-radius: 19px;
+  overflow: hidden;
+
+  box-shadow:
+    0 15px 50px rgba(0, 0, 0, 0.3),
+    0 0 35px rgba(53, 36, 160, 0.15);
+
+  /* Animação de flutuação */
+  animation: flutuar 5s ease-in-out infinite;
+}
+
+
+/* BRILHO AO REDOR DA JANELA */
+
+.janela::before {
+  content: "";
+
+  position: absolute;
+  inset: -2px;
+
+  border-radius: inherit;
+
+  background: linear-gradient(135deg,
+      rgba(65, 45, 210, 0.18),
+      transparent 45%,
+      rgba(40, 100, 70, 0.12));
+
+  pointer-events: none;
+  z-index: 2;
+}
+
+
+/* BARRA SUPERIOR */
+
+.barra-janela {
+  width: 100%;
+  height: 41px;
+
+  background-color: #292929;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 10px;
+}
+
+.circulos {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.circulo {
+  width: 12px;
+  height: 12px;
+
+  border-radius: 50%;
+}
+
+.vermelho {
+  background-color: #ff515b;
+}
+
+.amarelo {
+  background-color: #f5d35d;
+}
+
+.verde {
+  background-color: #79b86c;
+}
+
+
+/* CONTEÚDO INTERNO DA JANELA */
+
+.conteudo-janela {
+  padding: 28px 17px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.linha {
+  height: 15px;
+
+  border-radius: 20px;
+  background-color: #444052;
+}
+
+.titulo-linha {
+  width: 58%;
+  height: 20px;
+
+  background-color: #403a7d;
+}
+
+.linha-grande {
+  width: 78%;
+}
+
+.linha-media {
+  width: 61%;
+}
+
+.botao-janela {
+  width: 89px;
+  height: 32px;
+
+  border-radius: 5px;
+
+  background: linear-gradient(110deg,
+      #2920c9,
+      #286047);
+}
+
+
+/* ANIMAÇÃO DE FLUTUAÇÃO */
+
+@keyframes flutuar {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  25% {
+    transform: translateY(-12px) rotate(1deg);
+  }
+
+  50% {
+    transform: translateY(-20px) rotate(0deg);
+  }
+
+  75% {
+    transform: translateY(-10px) rotate(-1deg);
+  }
+
+}
+
+
+/* RESPONSIVIDADE: TABLETS */
+
+@media (max-width: 900px) {
+
+  .conteudo-inicio {
+    gap: 25px;
+  }
+
+  .botoes-inicio {
+    gap: 12px;
+  }
+
+  .botao {
+    min-width: 175px;
+    font-size: 14px;
+  }
+
+  .janela {
+    height: 240px;
+  }
+
+}
+
+
+/* RESPONSIVIDADE: CELULARES */
+
+@media (max-width: 650px) {
+
+  .header-iframe {
+    height: 130px;
+  }
+
+  .inicio {
+    height: auto;
+    min-height: 100vh;
+    max-height: none;
+
+    padding: 165px 7% 60px;
+  }
+
+  .conteudo-inicio {
+    flex-direction: column;
+    align-items: stretch;
+
+    gap: 45px;
+  }
+
+  .texto-inicio {
+    max-width: 100%;
+
+    & h1 {
+      font-size: 38px;
+    }
+
+    & p {
+      max-width: 100%;
+    }
+  }
+
+  .botoes-inicio {
+    gap: 12px;
+  }
+
+  .botao {
+    width: 100%;
+  }
+
+  .ilustracao {
+    width: 100%;
+  }
+
+  .janela {
+    width: 100%;
+    max-width: 365px;
+    height: 250px;
+  }
+
+}
+
+
+/* ACESSIBILIDADE: REDUZIR MOVIMENTO */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .janela {
+    animation: none;
+  }
+
+  .botao {
+    transition: none;
+  }
+
+}
