@@ -1,0 +1,127 @@
+/* INDEX CSS */
+
+/* RESPONSIVIDADE: TABLETS */
+
+@media (max-width: 900px) {
+
+  .conteudo-inicio {
+    gap: 25px;
+  }
+
+  .botoes-inicio {
+    gap: 12px;
+  }
+
+  .botao {
+    min-width: 175px;
+    font-size: 14px;
+  }
+
+  .janela {
+    height: 240px;
+  }
+
+}
+
+/* RESPONSIVIDADE: CELULARES */
+
+@media (max-width: 650px) {
+
+  .header-iframe {
+    height: 130px;
+  }
+
+  .inicio {
+    height: auto;
+    min-height: 100vh;
+    max-height: none;
+
+    padding: 165px 7% 60px;
+  }
+
+  .conteudo-inicio {
+    flex-direction: column;
+    align-items: stretch;
+
+    gap: 45px;
+  }
+
+  .texto-inicio {
+    max-width: 100%;
+
+    & h1 {
+      font-size: 38px;
+    }
+
+    & p {
+      max-width: 100%;
+    }
+  }
+
+  .botoes-inicio {
+    gap: 12px;
+  }
+
+  .botao {
+    width: 100%;
+  }
+
+  .ilustracao {
+    width: 100%;
+  }
+
+  .janela {
+    width: 100%;
+    max-width: 365px;
+    height: 250px;
+  }
+
+}
+
+/* ACESSIBILIDADE: REDUZIR MOVIMENTO */
+
+
+
+/* TABLETS */
+@media (max-width: 900px) {
+  .main-services {
+    & .services {
+      & .container-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+      }
+    }
+  }
+}
+
+/* CELULARES */
+@media (max-width: 550px) {
+  .main-services {
+    padding: 45px 20px;
+
+    & .services {
+      & .title {
+        & .main-title {
+          & h2 {
+            font-size: 30px;
+          }
+        }
+
+        & .text {
+          & p {
+            font-size: 14px;
+          }
+        }
+      }
+
+      & .container-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+
+        & .service-card {
+          padding: 20px;
+        }
+      }
+    }
+  }
+}
