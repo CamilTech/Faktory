@@ -118,8 +118,8 @@
     & .botao-secundario {
       min-width: 200px;
 
-      background-color: var(--white)af0;
-      color: #171717;
+      background-color: var(--white);
+      color: var(--black);
 
       &:hover {
         background-color: #e8e3d8;
@@ -349,7 +349,7 @@
         box-sizing: border-box;
 
         background-color: #3d7fe11a;
-        border-radius: 18px;
+        border-radius: 12px;
 
         color: var(--white);
 
@@ -364,7 +364,7 @@
           margin-bottom: 19px;
 
           background-color: var(--light-blue);
-          border-radius: 14px;
+          border-radius: 10px;
         }
 
         & h3 {

@@ -1,4 +1,6 @@
+/*----------------------*/
 /* CONFIGURAÇÕES GERAIS */
+/*----------------------*/
 
 * {
   margin: 0;
@@ -31,7 +33,9 @@ a {
   color: inherit;
 }
 
-/* CABEÇALHO */
+/*----------------------*/
+/*      CABEÇALHO       */
+/*----------------------*/
 
 .cabecalho {
   width: 100%;
@@ -43,7 +47,7 @@ a {
 
   padding: 0 4%;
 
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 10;
@@ -97,10 +101,12 @@ a {
   }
 }
 
-/* HEADER EXTERNO */
+/*----------------------*/
+/*    HEADER EXTERNO    */
+/*----------------------*/
 
 .header-iframe {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
 
@@ -113,3 +119,353 @@ a {
   z-index: 100;
 }
 
+/*----------------------*/
+/*        RODAPÉ        */
+/*----------------------*/
+
+:root {
+  --black: #141414;
+  --white: #fffbed;
+  --green: #2d6436;
+  --dark-blue: #3d3874;
+  --blue: #2417b6;
+  --light-blue: #3d7fe1;
+}
+
+/* Google Material Symbols */
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined');
+
+.footer {
+  width: 100%;
+  background-color: var(--black);
+  color: var(--white);
+  padding: 140px 30px 20px;
+  overflow: hidden;
+  position: relative;
+
+  & .footer-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    position: relative;
+  }
+
+  /* Engrenagens decorativas */
+  & .gear {
+    font-family: 'Material Symbols Outlined';
+    position: absolute;
+    color: var(--dark-blue);
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+    line-height: 1;
+  }
+
+  & .gear-top {
+    font-size: 190px;
+    top: -115px;
+    left: 15px;
+    transform: rotate(-15deg);
+  }
+
+  & .gear-small {
+    font-size: 65px;
+    top: -85px;
+    left: 250px;
+  }
+
+  & .gear-right {
+    clip: rect(0px, 120px, 240px, 0px);
+    color: var(--white);
+    font-size: 240px;
+    right: -0.5em;
+    top: 90px;
+    opacity: 0.45;
+    z-index: 99;
+  }
+
+  /* Painel principal */
+  & .footer-content {
+    background-color: var(--dark-blue);
+    border-radius: 25px;
+    padding: 40px 50px 35px;
+    position: relative;
+    z-index: 1;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.15fr;
+    gap: 45px;
+  }
+
+  & .footer-content::after {
+    content: '';
+    display: block;
+    background-color: #3d3874;
+    clip-path: path("M52.7,0.5V0H0c5.8,17.4,16,31.5,30.8,42.4C45.9,53.5,62.9,59,81.7,59c7.8,0,15.5-1.1,23-3.1   C90.1,55,77.8,49.2,67.8,38.6C57.8,27.9,52.7,15.2,52.7,0.5z");
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 105px;
+    height: 59px;
+    position: absolute;
+    bottom: -59px;
+    left: 70px;
+    z-index: 0;
+  }
+
+  /* Colunas */
+  & .footer-column {
+    min-width: 0;
+
+    & .footer-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+
+      & .material-symbols-outlined {
+        font-size: 42px;
+        color: var(--white);
+        font-variation-settings:
+          'FILL' 1,
+          'wght' 500,
+          'GRAD' 0,
+          'opsz' 40;
+      }
+
+      & h2 {
+        font-size: 25px;
+        font-weight: 700;
+        margin: 0;
+      }
+    }
+
+    & ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 0 47px;
+
+      & li {
+        margin-bottom: 13px;
+
+        & a {
+          color: var(--white);
+          text-decoration: none;
+          font-size: 14px;
+          transition: color 0.3s ease;
+
+          &:hover {
+            color: var(--light-blue);
+          }
+        }
+      }
+    }
+  }
+
+  /* Área de atendimento */
+  & .atendimento {
+
+    & .footer-title {
+      margin-bottom: 8px;
+    }
+
+    /* Espaço da logo */
+    & .footer-logo {
+      width: 170px;
+      height: 60px;
+      background-color: #aaa;
+      border: 3px solid var(--black);
+      margin-bottom: 8px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+
+      & img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+
+    & .footer-description {
+      font-size: 12px;
+      line-height: 1.4;
+      margin: 0 0 17px;
+    }
+
+    /* Contatos */
+    & .footer-contact {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      width: fit-content;
+      color: var(--white);
+      text-decoration: none;
+      margin-bottom: 12px;
+      font-size: 13px;
+      transition: color 0.3s ease;
+
+      & .material-symbols-outlined {
+        font-size: 27px;
+      }
+
+      &:hover {
+        color: var(--light-blue);
+      }
+    }
+
+    & .phone {
+      color: var(--light-blue);
+      border: 1px solid var(--light-blue);
+      border-radius: 30px;
+      padding: 5px 13px;
+
+      & .material-symbols-outlined {
+        font-size: 25px;
+      }
+    }
+
+    & .email {
+      & .material-symbols-outlined {
+        font-size: 29px;
+      }
+    }
+  }
+
+  /* Parte inferior */
+  & .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 10px 45px 0 12em;
+    position: relative;
+    z-index: 1;
+
+    & .copyright {
+      font-size: 10px;
+      margin: 0;
+    }
+
+    /* Redes sociais */
+    & .social-media {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+
+      & a {
+        width: 51px;
+        height: 51px;
+        background-color: var(--white);
+        border-radius: 8px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: transform 0.3s ease;
+
+        &:hover {
+          transform: translateY(-5px);
+        }
+
+        & img {
+          width: 25px;
+          height: 25px;
+          object-fit: contain;
+        }
+      }
+    }
+  }
+}
+
+/* Tablets */
+@media (max-width: 850px) {
+  .footer {
+    padding: 110px 25px 20px;
+
+    & .footer-content {
+      padding: 35px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 35px;
+    }
+
+    & .atendimento {
+      grid-column: 1 / -1;
+      max-width: 400px;
+    }
+
+    & .gear-right {
+      right: -120px;
+    }
+
+    & .footer-bottom {
+      padding: 15px 10px 0;
+    }
+  }
+}
+
+/* Celulares */
+@media (max-width: 550px) {
+  .footer {
+    padding: 85px 15px 20px;
+
+    & .gear-top {
+      font-size: 130px;
+      top: -80px;
+      left: 0;
+    }
+
+    & .gear-small {
+      font-size: 45px;
+      top: -60px;
+      left: 180px;
+    }
+
+    & .gear-right {
+      font-size: 150px;
+      right: -90px;
+      top: auto;
+      bottom: 100px;
+    }
+
+    & .footer-content {
+      grid-template-columns: 1fr;
+      padding: 30px 25px;
+      gap: 30px;
+      border-radius: 20px;
+    }
+
+    & .footer-column {
+      & .footer-title {
+        & h2 {
+          font-size: 22px;
+        }
+      }
+    }
+
+    & .atendimento {
+      grid-column: auto;
+    }
+
+    & .footer-bottom {
+      flex-direction: column-reverse;
+      text-align: center;
+      gap: 20px;
+      padding: 20px 0 0;
+
+      & .social-media {
+        gap: 15px;
+
+        & a {
+          width: 45px;
+          height: 45px;
+        }
+      }
+
+      & .copyright {
+        line-height: 1.5;
+      }
+    }
+  }
+}
