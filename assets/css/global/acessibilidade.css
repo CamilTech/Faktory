@@ -480,3 +480,131 @@
     }
   }
 }
+
+
+
+/* PORTIFÓLIO */
+
+/* PORTIFÓLIO ÁREA */
+
+/* TABLETS E NOTEBOOKS */
+
+@media (max-width: 1000px) {
+  .projeto-area {
+    padding: 55px 4%;
+
+    .case-container {
+      grid-template-columns: minmax(0, 1.5fr) minmax(270px, 0.9fr);
+      gap: 30px;
+    }
+
+    .ficha-projeto {
+      padding: 24px;
+    }
+
+    .mostra-site figure {
+      --preview-height: 500px;
+    }
+  }
+}
+
+/* DISPOSITIVOS MENORES */
+
+@media (max-width: 750px) {
+  .projeto-area {
+    padding: 45px 5%;
+
+    .case-header {
+      margin-bottom: 35px;
+    }
+
+    .case-container {
+      display: flex;
+      flex-direction: column;
+      gap: 35px;
+    }
+
+    .case-content {
+      width: 100%;
+      gap: 40px;
+    }
+
+    .ficha-projeto {
+      position: relative;
+      top: auto;
+
+      width: 100%;
+      order: 2;
+    }
+
+    .mostra-site {
+      figure {
+        --preview-height: 450px;
+
+        img {
+          transition: none;
+        }
+
+        &:hover img {
+          transform: none;
+        }
+      }
+    }
+
+    .details {
+      gap: 35px;
+    }
+
+    .outros-cases {
+      margin-top: 65px;
+    }
+  }
+}
+
+/* CELULARES */
+
+@media (max-width: 480px) {
+  .projeto-area {
+    padding: 35px 5%;
+
+    .case-header {
+      h3 {
+        font-size: 2rem;
+      }
+
+      p {
+        font-size: 0.95rem;
+      }
+    }
+
+    .ficha-projeto {
+      padding: 22px;
+
+      .title {
+        h2 {
+          font-size: 1.3rem;
+        }
+
+        span {
+          font-size: 24px;
+        }
+      }
+    }
+
+    .mostra-site figure {
+      --preview-height: 350px;
+    }
+
+    .details {
+      gap: 30px;
+
+      > p {
+        padding: 18px;
+      }
+    }
+
+    .outros-cases {
+      margin-top: 50px;
+    }
+  }
+}
