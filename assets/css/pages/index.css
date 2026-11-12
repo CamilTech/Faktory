@@ -408,6 +408,207 @@
 }
 
 
+/*      PORTFÓLIO       */
+
+.portifolio {
+  background-color: var(--white);
+  color: var(--black);
+  padding: 100px 8% 120px;
+  min-height: 100vh;
+  box-sizing: border-box;
+
+  & .cases {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+
+    /* CABEÇALHO */
+
+    & .portifolio-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 25px;
+
+      max-width: 850px;
+      margin: 0 auto 70px;
+
+      & h3 {
+        font-size: 2.5em;
+        font-weight: 700;
+        line-height: 1.1;
+      }
+
+      & p {
+        font-size: 1.05rem;
+        line-height: 1.7;
+        opacity: 0.75;
+      }
+    }
+
+    /* CONTEÚDO */
+
+    & .portifolio-content {
+      display: grid;
+      justify-items: center;
+
+      & .projeto {
+        position: relative;
+        width: 90%;
+        height: 600px;
+
+        border-radius: 25px;
+        overflow: hidden;
+        isolation: isolate;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        background-color: var(--black);
+        color: var(--white);
+
+        /* IMAGEM */
+
+        & .projeto-img {
+          position: absolute;
+          inset: 0;
+
+          width: 100%;
+          height: 100%;
+
+          object-fit: cover;
+          object-position: center;
+
+          z-index: -2;
+          transition: transform 0.7s ease;
+        }
+
+        /* SOMBRA */
+
+        & .sombra {
+          position: absolute;
+          inset: 0;
+
+          background: linear-gradient(180deg,
+              rgba(0, 0, 0, 0.15) 0%,
+              rgba(0, 0, 0, 0.05) 30%,
+              rgba(0, 0, 0, 0.65) 65%,
+              rgba(0, 0, 0, 0.9) 100%);
+
+          z-index: -1;
+        }
+
+        /* LOGO */
+
+        & .projeto-header {
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+
+          padding: 40px 45px;
+
+          & .projeto-logo {
+            width: 85px;
+            height: 85px;
+
+            object-fit: cover;
+
+            background-color: var(--white);
+            box-sizing: border-box;
+          }
+        }
+
+        /* INFORMAÇÕES */
+
+        & .projeto-info {
+          padding: 40px 45px;
+
+          & .empresa {
+            font-size: clamp(2rem, 3vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 20px;
+          }
+
+          & .projeto-cols {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-items: end;
+            gap: 50px;
+
+            & p {
+              max-width: 650px;
+              font-size: 1rem;
+              line-height: 1.7;
+              opacity: 0.85;
+            }
+
+            /* BOTÕES */
+
+            & .btn-acoes {
+              display: flex;
+              align-items: center;
+              gap: 12px;
+
+              & a {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                padding: 14px 24px;
+                border-radius: 50px;
+
+                font-size: 0.9rem;
+                font-weight: 600;
+                text-decoration: none;
+                white-space: nowrap;
+
+                transition:
+                  background-color 0.3s ease,
+                  color 0.3s ease,
+                  transform 0.3s ease;
+              }
+
+              & .btn-case {
+                background-color: var(--white);
+                color: var(--black);
+
+                &:hover {
+                  background-color: var(--green);
+                  color: var(--white);
+                  transform: translateY(-3px);
+                }
+              }
+
+              & .btn-site {
+                border: 1px solid var(--white);
+                color: var(--white);
+                background-color: transparent;
+
+                &:hover {
+                  background-color: var(--white);
+                  color: var(--black);
+                  transform: translateY(-3px);
+                }
+              }
+            }
+          }
+        }
+
+        /* HOVER DO PROJETO */
+
+        &:hover {
+          & .projeto-img {
+            transform: scale(1.04);
+          }
+        }
+      }
+    }
+  }
+}
+
+
 /* CONTATO */
 
 .contato {
@@ -418,10 +619,10 @@
   align-items: center;
   justify-content: center;
 
-  background: 
+  background:
     linear-gradient(180deg,
-    var(--black) 0%,
-    var(--dark-blue) 100%);
+      var(--black) 0%,
+      var(--dark-blue) 100%);
 
   box-sizing: border-box;
 
@@ -640,87 +841,6 @@
         & .aviso-form {
           margin: 16px 0 0;
           font-size: 12px;
-        }
-      }
-    }
-  }
-}
-
-/* Responsividade */
-@media (max-width: 850px) {
-
-  .contato {
-    padding: 50px 6%;
-
-    & .main-contato {
-      grid-template-columns: 1fr;
-      gap: 40px;
-      max-width: 600px;
-
-      & .info-contato {
-        gap: 22px;
-
-        & .contatos {
-          gap: 18px;
-        }
-      }
-
-      & .form-contato {
-        padding: 25px;
-      }
-    }
-  }
-}
-
-@media (max-width: 500px) {
-
-  .contato {
-
-    & .main-contato {
-
-      & .info-contato {
-
-        & .titulo-contato {
-
-          & h1 {
-            font-size: 28px;
-          }
-
-          & p {
-            font-size: 16px;
-          }
-        }
-      }
-
-      & .form-contato {
-        padding: 22px 18px;
-        border-radius: 20px;
-
-        & form {
-
-          & .campos-form {
-            grid-template-columns: 1fr;
-            gap: 15px;
-
-            & .campo {
-
-              &.campo-completo {
-                grid-column: auto;
-              }
-            }
-          }
-
-          & .acoes-form {
-            flex-wrap: wrap;
-
-            & button {
-              flex: 1;
-            }
-          }
-
-          & .aviso-form {
-            line-height: 1.5;
-          }
         }
       }
     }

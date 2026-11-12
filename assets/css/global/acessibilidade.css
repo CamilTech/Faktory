@@ -1,4 +1,4 @@
-/* INDEX CSS */
+/* HEADER */
 
 /* RESPONSIVIDADE: TABLETS */
 
@@ -78,9 +78,105 @@
 
 }
 
-/* ACESSIBILIDADE: REDUZIR MOVIMENTO */
+
+/* FOOTER */
+
+/* Tablets */
+@media (max-width: 850px) {
+  .footer {
+    padding: 110px 25px 20px;
+
+    & .footer-content {
+      padding: 35px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 35px;
+    }
+
+    & .atendimento {
+      grid-column: 1 / -1;
+      max-width: 400px;
+    }
+
+    & .gear-right {
+      right: -120px;
+    }
+
+    & .footer-bottom {
+      padding: 15px 10px 0;
+    }
+  }
+}
+
+/* Celulares */
+@media (max-width: 550px) {
+  .footer {
+    padding: 85px 15px 20px;
+
+    & .gear-top {
+      font-size: 130px;
+      top: -80px;
+      left: 0;
+    }
+
+    & .gear-small {
+      font-size: 45px;
+      top: -60px;
+      left: 180px;
+    }
+
+    & .gear-right {
+      font-size: 150px;
+      right: -90px;
+      top: auto;
+      bottom: 100px;
+    }
+
+    & .footer-content {
+      grid-template-columns: 1fr;
+      padding: 30px 25px;
+      gap: 30px;
+      border-radius: 20px;
+    }
+
+    & .footer-column {
+      & .footer-title {
+        & h2 {
+          font-size: 22px;
+        }
+      }
+    }
+
+    & .atendimento {
+      grid-column: auto;
+    }
+
+    & .footer-bottom {
+      flex-direction: column-reverse;
+      text-align: center;
+      gap: 20px;
+      padding: 20px 0 0;
+
+      & .social-media {
+        gap: 15px;
+
+        & a {
+          width: 45px;
+          height: 45px;
+        }
+      }
+
+      & .copyright {
+        line-height: 1.5;
+      }
+    }
+  }
+}
 
 
+/* INDEX CSS */
+
+
+/* MAIN SERVICES */
 
 /* TABLETS */
 @media (max-width: 900px) {
@@ -120,6 +216,265 @@
 
         & .service-card {
           padding: 20px;
+        }
+      }
+    }
+  }
+}
+
+
+
+/* PORTIFÓLIO */
+
+/* TABLETS */
+
+@media (max-width: 1000px) {
+
+  .portifolio {
+    padding: 80px 5%;
+
+    & .cases {
+
+      & .portifolio-header {
+        margin-bottom: 50px;
+      }
+
+      & .portifolio-content {
+
+        & .projeto {
+          height: 580px;
+
+          & .projeto-header {
+            padding: 35px;
+          }
+
+          & .projeto-info {
+            padding: 35px;
+
+            & .projeto-cols {
+              grid-template-columns: 1fr;
+              gap: 25px;
+
+              & p {
+                max-width: 700px;
+              }
+
+              & .btn-acoes {
+                justify-content: flex-start;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* CELULARES */
+
+@media (max-width: 600px) {
+
+  .portifolio {
+    padding: 65px 5% 80px;
+
+    & .cases {
+
+      & .portifolio-header {
+        gap: 18px;
+        margin-bottom: 40px;
+
+        & h1 {
+          font-size: 2.2rem;
+        }
+
+        & p {
+          font-size: 0.95rem;
+          line-height: 1.6;
+        }
+      }
+
+      & .portifolio-content {
+
+        & .projeto {
+          height: 600px;
+          border-radius: 18px;
+
+          & .projeto-img {
+            object-position: center;
+          }
+
+          & .sombra {
+            background: linear-gradient(
+              180deg,
+              rgba(0, 0, 0, 0.1) 0%,
+              rgba(0, 0, 0, 0.2) 30%,
+              rgba(0, 0, 0, 0.8) 65%,
+              rgba(0, 0, 0, 0.95) 100%
+            );
+          }
+
+          & .projeto-header {
+            padding: 25px;
+
+            & .projeto-logo {
+              width: 65px;
+              height: 65px;
+            }
+          }
+
+          & .projeto-info {
+            padding: 25px;
+
+            & .empresa {
+              font-size: 2rem;
+              margin-bottom: 15px;
+            }
+
+            & .projeto-cols {
+              gap: 22px;
+
+              & p {
+                font-size: 0.9rem;
+                line-height: 1.55;
+              }
+
+              & .btn-acoes {
+                flex-wrap: wrap;
+                gap: 10px;
+
+                & a {
+                  padding: 12px 18px;
+                  font-size: 0.8rem;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* CELULARES PEQUENOS */
+
+@media (max-width: 380px) {
+
+  .portifolio {
+
+    & .cases {
+
+      & .portifolio-header {
+
+        & h1 {
+          font-size: 1.9rem;
+        }
+      }
+
+      & .portifolio-content {
+
+        & .projeto {
+          height: 630px;
+
+          & .projeto-info {
+            padding: 20px;
+
+            & .projeto-cols {
+
+              & .btn-acoes {
+                flex-direction: column;
+                align-items: stretch;
+
+                & a {
+                  width: 100%;
+                  box-sizing: border-box;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+/* CONTATO */
+
+/* Responsividade */
+@media (max-width: 850px) {
+
+  .contato {
+    padding: 50px 6%;
+
+    & .main-contato {
+      grid-template-columns: 1fr;
+      gap: 40px;
+      max-width: 600px;
+
+      & .info-contato {
+        gap: 22px;
+
+        & .contatos {
+          gap: 18px;
+        }
+      }
+
+      & .form-contato {
+        padding: 25px;
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+
+  .contato {
+
+    & .main-contato {
+
+      & .info-contato {
+
+        & .titulo-contato {
+
+          & h1 {
+            font-size: 28px;
+          }
+
+          & p {
+            font-size: 16px;
+          }
+        }
+      }
+
+      & .form-contato {
+        padding: 22px 18px;
+        border-radius: 20px;
+
+        & form {
+
+          & .campos-form {
+            grid-template-columns: 1fr;
+            gap: 15px;
+
+            & .campo {
+
+              &.campo-completo {
+                grid-column: auto;
+              }
+            }
+          }
+
+          & .acoes-form {
+            flex-wrap: wrap;
+
+            & button {
+              flex: 1;
+            }
+          }
+
+          & .aviso-form {
+            line-height: 1.5;
+          }
         }
       }
     }
