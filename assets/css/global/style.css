@@ -1,5 +1,6 @@
 @import "./acessibilidade.css";
 
+
 /*----------------------*/
 /* CONFIGURAÇÕES GERAIS */
 /*----------------------*/
@@ -94,6 +95,10 @@ a {
   left: 0;
   z-index: 10;
 
+  /*--------------------------*/
+  /*           LOGO           */
+  /*--------------------------*/
+
   & .logo {
     background-color: var(--dark-blue);
     color: var(--white);
@@ -105,6 +110,59 @@ a {
     font-weight: 800;
     letter-spacing: 0.5px;
   }
+
+  /*--------------------------*/
+  /*   BOTÃO HAMBURGUER       */
+  /*--------------------------*/
+
+  & .menu-toggle {
+    display: none;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+
+    width: 44px;
+    height: 44px;
+    padding: 0;
+
+    background: transparent;
+    border: none;
+    cursor: pointer;
+
+    z-index: 15;
+
+    & span {
+      display: block;
+      width: 26px;
+      height: 2px;
+
+      background-color: var(--white);
+      border-radius: 2px;
+
+      transition:
+        transform 0.3s ease,
+        opacity 0.3s ease;
+    }
+
+    /*- Estado aberto: vira X -*/
+    &.ativo {
+      & span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+      }
+      & span:nth-child(2) {
+        opacity: 0;
+      }
+      & span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+      }
+    }
+  }
+
+  /*--------------------------*/
+  /*           MENU           */
+  /*--------------------------*/
 
   & .menu {
     display: flex;
@@ -119,105 +177,129 @@ a {
       cursor: pointer;
     }
 
-    & a:hover,
-    & .nav-services:hover > .sublink {
+    & a:hover {
       color: #9990ff;
     }
-  }
 
-  /* MENU DE SERVIÇOS */
+    /*--------------------------*/
+    /*     MENU DE SERVIÇOS     */
+    /*--------------------------*/
 
-  & .nav-services {
-    position: relative;
-    display: flex;
-    align-items: center;
-    height: 75px;
-
-    & .sublink {
+    & .nav-services {
+      position: relative;
       display: flex;
       align-items: center;
-      gap: 7px;
-    }
+      height: 75px;
 
-    /* Seta indicativa */
+      & .sublink {
+        display: flex;
+        align-items: center;
+        gap: 7px;
 
-    & .sublink::after {
-      content: "";
-      width: 7px;
-      height: 7px;
+        /*--------------------------*/
+        /*     SETA INDICATIVA      */
+        /*--------------------------*/
 
-      border-right: 2px solid currentColor;
-      border-bottom: 2px solid currentColor;
+        &::after {
+          content: "";
+          width: 7px;
+          height: 7px;
 
-      transform: rotate(45deg) translateY(-2px);
-      transition: transform 0.3s ease;
-    }
+          border-right: 2px solid currentColor;
+          border-bottom: 2px solid currentColor;
 
-    /* Submenu */
+          transform: rotate(45deg) translateY(-2px);
+          transition: transform 0.3s ease;
+        }
+      }
 
-    & .submenu {
-      position: absolute;
-      top: 65px;
-      left: 50%;
+      /*--------------------------*/
+      /*         SUBMENU          */
+      /*--------------------------*/
 
-      transform: translate(-50%, 12px);
+      & .submenu {
+        position: absolute;
+        top: 65px;
+        left: 50%;
 
-      width: 220px;
-      padding: 12px;
+        transform: translate(-50%, 12px);
 
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
+        width: 220px;
+        padding: 12px;
 
-      background-color: var(--dark-blue);
-      border: 1px solid var(--light-blue);
-      border-radius: 14px;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
 
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
+        background-color: var(--dark-blue);
+        border: 1px solid var(--light-blue);
+        border-radius: 14px;
 
-      transition:
-        opacity 0.3s ease,
-        transform 0.3s ease,
-        visibility 0.3s ease;
-
-      & a {
-        width: 100%;
-        padding: 12px 14px;
-
-        font-size: 15px;
-        font-weight: 500;
-        color: var(--white);
-
-        border-radius: 8px;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
 
         transition:
-          background-color 0.3s ease,
-          color 0.3s ease;
+          opacity 0.3s ease,
+          transform 0.3s ease,
+          visibility 0.3s ease;
 
-        &:hover {
-          background-color: var(--blue);
+        & a {
+          width: 100%;
+          padding: 12px 14px;
+
+          font-size: 15px;
+          font-weight: 500;
+          color: var(--white);
+
+          border-radius: 8px;
+
+          transition:
+            background-color 0.3s ease,
+            color 0.3s ease;
+
+          &:hover {
+            background-color: var(--blue);
+          }
         }
+      }
+
+      /*--------------------------*/
+      /*      ABRIR SUBMENU       */
+      /*--------------------------*/
+
+      &:hover > .sublink {
+        color: #9990ff;
+      }
+
+      &:hover .submenu,
+      &:focus-within .submenu {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translate(-50%, 0);
+      }
+
+      /*- Gira a seta 180° enquanto o submenu está aberto -*/
+      &:hover .sublink::after {
+        transform: rotate(225deg) translateY(-2px);
       }
     }
 
-    /* Abrir submenu */
+    /*--------------------------*/
+    /*  CTA DENTRO DO PAINEL    */
+    /*  MOBILE (escondido no    */
+    /*  desktop)                */
+    /*--------------------------*/
 
-    &:hover .submenu,
-    &:focus-within .submenu {
-      opacity: 1;
-      visibility: visible;
-      pointer-events: auto;
-      transform: translate(-50%, 0);
-    }
-
-    &:hover .sublink::after {
-      transform: rotate(225deg) translateY(-2px);
+    & .menu-orcamento {
+      display: none;
     }
   }
 
-  /* BOTÃO DE ORÇAMENTO */
+  /*--------------------------*/
+  /*    BOTÃO DE ORÇAMENTO    */
+  /*--------------------------*/
 
   & .orcamento-topo {
     padding: 15px 10px;
@@ -244,7 +326,6 @@ a {
 }
 
 
-
 /*----------------------*/
 /*        RODAPÉ        */
 /*----------------------*/
@@ -262,251 +343,281 @@ a {
     max-width: 1200px;
     margin: auto;
     position: relative;
-  }
 
-  /* Engrenagens decorativas */
-  & .gear {
-    font-family: 'Material Symbols Outlined';
-    font-variation-settings:
-      'FILL' 0,
-      'wght' 400,
-      'GRAD' 0,
-      'opsz' 48;
+    /*--------------------------*/
+    /*  ENGRENAGENS DECORATIVAS */
+    /*--------------------------*/
 
-    position: absolute;
-    color: var(--dark-blue);
-    pointer-events: none;
-    user-select: none;
-    z-index: 0;
-    line-height: 1;
-  }
+    & .gears {
 
-  & .gear-top {
-    font-size: 190px;
-    top: -90px;
-    z-index: 0;
-  }
-
-  & .gear-filled {
-    font-size: 170px;
-    top: -62px;
-    left: 80px;
-    color: var(--dark-blue);
-    z-index: 1;
-
-    font-variation-settings:
-      'FILL' 1,
-      'wght' 400,
-      'GRAD' 0,
-      'opsz' 48;
-  }
-
-  & .gear-small {
-    font-size: 65px;
-    top: -70px;
-    left: 230px;
-  }
-
-  & .gear-right {
-    clip: rect(0px, 150px, 300px, 0px);
-    color: var(--white);
-    font-size: 300px;
-    right: -0.5em;
-    top: 25px;
-    opacity: 0.35;
-    z-index: 99;
-  }
-
-  /* Painel principal */
-  & .footer-content {
-    background-color: var(--dark-blue);
-    border-radius: 25px;
-    padding: 40px 50px 35px;
-    position: relative;
-    z-index: 1;
-
-    display: grid;
-    grid-template-columns: 1fr 1fr 1.15fr;
-    gap: 45px;
-  }
-
-  & .footer-content::after {
-    content: '';
-    display: block;
-    background-color: #3d3874;
-    clip-path: path("M52.7,0.5V0H0c5.8,17.4,16,31.5,30.8,42.4C45.9,53.5,62.9,59,81.7,59c7.8,0,15.5-1.1,23-3.1   C90.1,55,77.8,49.2,67.8,38.6C57.8,27.9,52.7,15.2,52.7,0.5z");
-    background-repeat: no-repeat;
-    background-position: center;
-    width: 105px;
-    height: 59px;
-    position: absolute;
-    bottom: -59px;
-    left: 70px;
-    z-index: 0;
-  }
-
-  /* Colunas */
-  & .footer-column {
-    min-width: 0;
-
-    & .footer-title {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 12px;
-
-      & .material-symbols-outlined {
-        font-size: 42px;
-        color: var(--white);
+      & .gear {
+        font-family: 'Material Symbols Outlined';
         font-variation-settings:
           'FILL' 0,
-          'wght' 500,
+          'wght' 400,
           'GRAD' 0,
-          'opsz' 40;
-      }
+          'opsz' 48;
 
-      & h2 {
-        font-size: 25px;
-        font-weight: 700;
-        margin: 0;
+        position: absolute;
+        color: var(--dark-blue);
+        pointer-events: none;
+        user-select: none;
+        z-index: 0;
+        line-height: 1;
+
+        &.gear-top {
+          font-size: 190px;
+          top: -90px;
+          z-index: 0;
+        }
+
+        &.gear-filled {
+          font-size: 170px;
+          top: -62px;
+          left: 80px;
+          color: var(--dark-blue);
+          z-index: 1;
+
+          font-variation-settings:
+            'FILL' 1,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 48;
+        }
+
+        &.gear-small {
+          font-size: 65px;
+          top: -70px;
+          left: 230px;
+        }
+
+        /*- O clip recorta a engrenagem, mostrando só a metade esquerda dela -*/
+        &.gear-right {
+          clip: rect(0px, 150px, 300px, 0px);
+          color: var(--white);
+          font-size: 300px;
+          right: -0.5em;
+          top: 25px;
+          opacity: 0.35;
+          z-index: 99;
+        }
       }
     }
 
-    & ul {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 0 47px;
+    /*--------------------------*/
+    /*     PAINEL PRINCIPAL     */
+    /*--------------------------*/
 
-      & li {
-        margin-bottom: 13px;
+    & .footer-content {
+      background-color: var(--dark-blue);
+      border-radius: 25px;
+      padding: 40px 50px 35px;
+      position: relative;
+      z-index: 1;
 
-        & a {
-          color: var(--white);
-          text-decoration: none;
-          font-size: 14px;
-          transition: color 0.3s ease;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1.15fr;
+      gap: 45px;
 
-          &:hover {
-            color: var(--light-blue);
+      /*- "Rabinho" do painel, desenhado com clip-path (path SVG) -*/
+      &::after {
+        content: '';
+        display: block;
+        background-color: #3d3874;
+        clip-path: path("M52.7,0.5V0H0c5.8,17.4,16,31.5,30.8,42.4C45.9,53.5,62.9,59,81.7,59c7.8,0,15.5-1.1,23-3.1   C90.1,55,77.8,49.2,67.8,38.6C57.8,27.9,52.7,15.2,52.7,0.5z");
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 105px;
+        height: 59px;
+        position: absolute;
+        bottom: -59px;
+        left: 70px;
+        z-index: 0;
+      }
+
+      /*--------------------------*/
+      /*          COLUNAS         */
+      /*--------------------------*/
+
+      & .footer-column {
+        min-width: 0;
+
+        & .footer-title {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          margin-bottom: 12px;
+
+          & .material-symbols-outlined {
+            font-size: 42px;
+            color: var(--white);
+            font-variation-settings:
+              'FILL' 0,
+              'wght' 500,
+              'GRAD' 0,
+              'opsz' 40;
+          }
+
+          & h2 {
+            font-size: 25px;
+            font-weight: 700;
+            margin: 0;
+          }
+        }
+
+        & ul {
+          list-style: none;
+          padding: 0;
+          margin: 0 0 0 47px;
+
+          & li {
+            margin-bottom: 13px;
+
+            & a {
+              color: var(--white);
+              text-decoration: none;
+              font-size: 14px;
+              transition: color 0.3s ease;
+
+              &:hover {
+                color: var(--light-blue);
+              }
+            }
+          }
+        }
+
+        /*--------------------------*/
+        /*    ÁREA DE ATENDIMENTO   */
+        /*--------------------------*/
+
+        &.atendimento {
+
+          & .footer-title {
+            margin-bottom: 8px;
+          }
+
+          /*--------------------------*/
+          /*      LOGO DA EMPRESA     */
+          /*--------------------------*/
+
+          & .footer-logo {
+            width: 170px;
+            height: 60px;
+            background-color: #aaa;
+            border: 3px solid var(--black);
+            margin-bottom: 8px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+
+            & img {
+              width: 100%;
+              height: 100%;
+              object-fit: contain;
+            }
+          }
+
+          & .footer-description {
+            font-size: 12px;
+            line-height: 1.4;
+            margin: 0 0 17px;
+          }
+
+          /*--------------------------*/
+          /*         CONTATOS         */
+          /*--------------------------*/
+
+          & .footer-contact {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            width: fit-content;
+            color: var(--white);
+            text-decoration: none;
+            margin-bottom: 12px;
+            font-size: 13px;
+            transition: color 0.3s ease;
+
+            & .material-symbols-outlined {
+              font-size: 27px;
+            }
+
+            &.phone {
+              color: var(--light-green);
+              border: 1px solid var(--light-green);
+              border-radius: 30px;
+              padding: 5px 13px;
+
+              & .material-symbols-outlined {
+                font-size: 25px;
+              }
+            }
+
+            &.email {
+
+              & .material-symbols-outlined {
+                font-size: 29px;
+              }
+            }
+
+            &:hover {
+              border-color: var(--light-blue);
+              color: var(--light-blue);
+            }
           }
         }
       }
     }
-  }
 
-  /* Área de atendimento */
-  & .atendimento {
+    /*--------------------------*/
+    /*      PARTE INFERIOR      */
+    /*--------------------------*/
 
-    & .footer-title {
-      margin-bottom: 8px;
-    }
-
-    /* Espaço da logo */
-    & .footer-logo {
-      width: 170px;
-      height: 60px;
-      background-color: #aaa;
-      border: 3px solid var(--black);
-      margin-bottom: 8px;
-
+    & .footer-bottom {
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
-      overflow: hidden;
+      gap: 20px;
+      padding: 10px 45px 0 12em;
+      position: relative;
+      z-index: 1;
 
-      & img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-      }
-    }
-
-    & .footer-description {
-      font-size: 12px;
-      line-height: 1.4;
-      margin: 0 0 17px;
-    }
-
-    /* Contatos */
-    & .footer-contact {
-      display: flex;
-      align-items: center;
-      gap: 9px;
-      width: fit-content;
-      color: var(--white);
-      text-decoration: none;
-      margin-bottom: 12px;
-      font-size: 13px;
-      transition: color 0.3s ease;
-
-      & .material-symbols-outlined {
-        font-size: 27px;
+      & .copyright {
+        font-size: 10px;
+        margin: 0;
       }
 
-      &:hover {
-        border-color: var(--light-blue);
-        color: var(--light-blue);
-      }
-    }
+      /*--------------------------*/
+      /*      REDES SOCIAIS       */
+      /*--------------------------*/
 
-    & .phone {
-      color: var(--light-green);
-      border: 1px solid var(--light-green);
-      border-radius: 30px;
-      padding: 5px 13px;
-
-      & .material-symbols-outlined {
-        font-size: 25px;
-      }
-    }
-
-    & .email {
-      & .material-symbols-outlined {
-        font-size: 29px;
-      }
-    }
-  }
-
-  /* Parte inferior */
-  & .footer-bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-    padding: 10px 45px 0 12em;
-    position: relative;
-    z-index: 1;
-
-    & .copyright {
-      font-size: 10px;
-      margin: 0;
-    }
-
-    /* Redes sociais */
-    & .social-media {
-      display: flex;
-      align-items: center;
-      gap: 30px;
-
-      & a {
-        width: 51px;
-        height: 51px;
-        background-color: var(--white);
-        border-radius: 8px;
-
+      & .social-media {
         display: flex;
-        justify-content: center;
         align-items: center;
-        transition: transform 0.3s ease;
+        gap: 30px;
 
-        &:hover {
-          transform: translateY(-5px);
-        }
+        & a {
+          width: 51px;
+          height: 51px;
+          background-color: var(--white);
+          border-radius: 8px;
 
-        & img {
-          width: 25px;
-          height: 25px;
-          object-fit: contain;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          transition: transform 0.3s ease;
+
+          &:hover {
+            transform: translateY(-5px);
+          }
+
+          & img {
+            width: 25px;
+            height: 25px;
+            object-fit: contain;
+          }
         }
       }
     }

@@ -3,16 +3,26 @@
 <body>
   <header class="cabecalho">
 
-    <a href="../../../index.html" class="logo">
-      Faktory
-    </a>
+    <a href="../../../index.html" class="logo">Faktory</a>
 
-    <nav class="menu">
+    <button
+      type="button"
+      class="menu-toggle"
+      aria-label="Abrir menu"
+      aria-expanded="false"
+      aria-controls="menu-principal">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="menu" id="menu-principal">
+
       <a href="#sobre">Sobre nós</a>
       <a href="#projetos">Projetos</a>
+
       <div class="nav-services">
         <span class="sublink">Serviços</span>
-        
         <div class="submenu">
           <a href="">Titulo generico</a>
           <a href="">Titulo generico</a>
@@ -20,14 +30,22 @@
           <a href="">Titulo generico</a>
         </div>
       </div>
+
       <a href="#contato">Contato</a>
+
+      <!-- CTA duplicado: só aparece dentro do painel mobile -->
+      <a href="#contato" class="orcamento-topo menu-orcamento">
+        Solicitar Orçamento
+      </a>
+
     </nav>
 
-    <a href="#contato" class="orcamento-topo">
+    <!-- CTA original: só aparece no desktop -->
+    <a href="#contato" class="orcamento-topo desktop-orcamento">
       Solicitar Orçamento
     </a>
 
-    <!--  -->
-
   </header>
+
+  <script src="../../js/script.js"></script>
 </body>

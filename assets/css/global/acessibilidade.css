@@ -1,649 +1,1001 @@
-/* HEADER */
+/*==================================================*/
+/*         RESPONSIVIDADE GERAL (com !important)    */
+/*==================================================*/
 
-/* RESPONSIVIDADE: TABLETS */
-
-@media (max-width: 900px) {
-
-  .conteudo-inicio {
-    gap: 25px;
-  }
-
-  .botoes-inicio {
-    gap: 12px;
-  }
-
-  .botao {
-    min-width: 175px;
-    font-size: 14px;
-  }
-
-  .janela {
-    height: 240px;
-  }
-
+/*- BASE: força estados iniciais (evita override de outras folhas) -*/
+.menu-toggle {
+  display: none !important;
 }
 
-/* RESPONSIVIDADE: CELULARES */
+.menu-orcamento {
+  display: none !important;
+}
 
-@media (max-width: 650px) {
-
-  .header-iframe {
-    height: 130px;
-  }
-
-  .inicio {
-    height: auto;
-    min-height: 100vh;
-    max-height: none;
-
-    padding: 165px 7% 60px;
-  }
-
-  .conteudo-inicio {
-    flex-direction: column;
-    align-items: stretch;
-
-    gap: 45px;
-  }
-
-  .texto-inicio {
-    max-width: 100%;
-
-    & h1 {
-      font-size: 38px;
-    }
-
-    & p {
-      max-width: 100%;
-    }
-  }
-
-  .botoes-inicio {
-    gap: 12px;
-  }
-
-  .botao {
-    width: 100%;
-  }
-
-  .ilustracao {
-    width: 100%;
-  }
-
-  .janela {
-    width: 100%;
-    max-width: 365px;
-    height: 250px;
-  }
-
+body.menu-aberto {
+  overflow: hidden !important;
 }
 
 
-/* FOOTER */
+/*------------------------------*/
+/*      BREAKPOINT ≤ 1200px     */
+/*------------------------------*/
+@media (max-width: 1200px) {
 
-/* Tablets */
-@media (max-width: 850px) {
-  .footer {
-    padding: 110px 25px 20px;
-
-    & .footer-content {
-      padding: 35px;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 35px;
+  /*- Cabeçalho -*/
+  .cabecalho {
+    & .logo {
+      font-size: 20px !important;
+      padding: 9px 26px !important;
     }
-
-    & .atendimento {
-      grid-column: 1 / -1;
-      max-width: 400px;
-    }
-
-    & .gear-right {
-      right: -120px;
-    }
-
-    & .footer-bottom {
-      padding: 15px 10px 0;
-    }
-  }
-}
-
-/* Celulares */
-@media (max-width: 550px) {
-  .footer {
-    padding: 85px 15px 20px;
-
-    & .gear-top {
-      font-size: 130px;
-      top: -80px;
-      left: 0;
-    }
-
-    & .gear-small {
-      font-size: 45px;
-      top: -60px;
-      left: 180px;
-    }
-
-    & .gear-right {
-      font-size: 150px;
-      right: -90px;
-      top: auto;
-      bottom: 100px;
-    }
-
-    & .footer-content {
-      grid-template-columns: 1fr;
-      padding: 30px 25px;
-      gap: 30px;
-      border-radius: 20px;
-    }
-
-    & .footer-column {
-      & .footer-title {
-        & h2 {
-          font-size: 22px;
-        }
+    & .menu {
+      gap: 18px !important;
+      & a,
+      & .sublink {
+        font-size: 16px !important;
       }
-    }
-
-    & .atendimento {
-      grid-column: auto;
-    }
-
-    & .footer-bottom {
-      flex-direction: column-reverse;
-      text-align: center;
-      gap: 20px;
-      padding: 20px 0 0;
-
-      & .social-media {
-        gap: 15px;
-
+      & .nav-services .submenu {
+        width: 200px !important;
+        padding: 10px !important;
         & a {
-          width: 45px;
-          height: 45px;
+          font-size: 14px !important;
+          padding: 10px 12px !important;
+        }
+      }
+    }
+    & .orcamento-topo {
+      padding: 12px 10px !important;
+      font-size: 13px !important;
+    }
+  }
+
+  /*------------------------------*/
+  /*        INTRO / HOME          */
+  /*------------------------------*/
+  .intro .inicio .conteudo-inicio {
+    gap: 35px !important;
+
+    & .texto-inicio {
+      & h1 {
+        font-size: clamp(30px, 3.6vw, 40px) !important;
+      }
+      & p {
+        max-width: 340px !important;
+      }
+      & .botoes-inicio {
+        gap: 20px !important;
+      }
+    }
+
+    & .ilustracao .janela {
+      width: min(100%, 320px) !important;
+      height: 240px !important;
+    }
+  }
+
+  /*--------------------------------------------------*/
+  /*- SERVIÇOS · QUEBRA DE GRID (4 → 2 colunas) -*/
+  /*--------------------------------------------------*/
+  .main-services {
+    height: auto !important;
+    min-height: 100vh !important;
+
+    & .services {
+      width: 95% !important;
+
+      & .container-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      }
+    }
+  }
+
+  /*- Portfólio -*/
+  .portifolio {
+    padding: 90px 6% 100px !important;
+
+    & .cases .portifolio-content .projeto {
+      height: 540px !important;
+      & .projeto-info .projeto-cols {
+        gap: 30px !important;
+      }
+    }
+  }
+
+  /*- Sobre nós -*/
+  .about-us .sobre-nos .equipe-container .equipe-conteudo {
+    grid-template-columns: 290px 1fr !important;
+  }
+
+  /*- Contato -*/
+  .contato .main-contato {
+    gap: 35px !important;
+
+    & .info-contato {
+      & .titulo-contato h1 {
+        font-size: 3em !important;
+      }
+      & .contatos {
+        gap: 25px !important;
+        & .card-contato {
+          min-height: 70px !important;
+          padding: 12px !important;
+        }
+      }
+    }
+
+    & .form-contato {
+      padding: 28px !important;
+    }
+  }
+
+  /*------------------------------*/
+  /*      PÁGINA DO PROJETO       */
+  /*------------------------------*/
+  .projeto-area {
+    padding: 100px 4% !important;
+
+    & .case .case-container {
+      grid-template-columns: minmax(0, 1.5fr) minmax(280px, 1fr) !important;
+      gap: 35px !important;
+
+      & .ficha-projeto {
+        padding: 24px !important;
+        top: 95px !important;
+        & .solucoes ul li {
+          font-size: 0.9rem !important;
         }
       }
 
-      & .copyright {
-        line-height: 1.5;
+      & .case-content {
+        gap: 40px !important;
+        & .mostra-site figure {
+          --preview-height: 540px;
+        }
       }
     }
   }
 }
 
 
-/* INDEX CSS */
+/*------------------------------*/
+/*      BREAKPOINT ≤ 992px      */
+/*   HAMBURGUER + QUEBRAS       */
+/*------------------------------*/
+@media (max-width: 992px) {
 
+  /*-------------------------------------------------*/
+  /*- CABEÇALHO: corrige z-index e ativa hamburguer -*/
+  /*-------------------------------------------------*/
+  .header-iframe {
+    height: 65px !important;
+  }
 
-/* MAIN SERVICES */
+  .cabecalho {
+    height: 65px !important;
+    padding: 0 3% !important;
 
-/* TABLETS */
-@media (max-width: 900px) {
-  .main-services {
-    & .services {
-      & .container-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 20px;
+    /*- Header ACIMA do backdrop (era a causa do bug) -*/
+    z-index: 1000 !important;
+
+    & .logo {
+      font-size: 17px !important;
+      padding: 8px 22px !important;
+    }
+
+    /*- Botão hamburguer visível -*/
+    & .menu-toggle {
+      display: flex !important;
+      z-index: 30 !important;
+    }
+
+    /*- CTA original some -*/
+    & .desktop-orcamento {
+      display: none !important;
+    }
+
+    /*-------------------------------------------------*/
+    /*- PAINEL MOBILE (slide-in da direita) -*/
+    /*-------------------------------------------------*/
+    & .menu {
+      position: fixed !important;
+      top: 0 !important;
+      right: 0 !important;
+
+      width: min(85%, 340px) !important;
+      height: 100vh !important;
+      max-height: 100vh !important;
+      padding: 90px 26px 40px !important;
+
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      gap: 6px !important;
+
+      background-color: var(--dark-blue) !important;
+      border-left: 1px solid var(--light-blue) !important;
+
+      transform: translateX(100%) !important;
+      transition: transform 0.35s ease !important;
+      overflow-y: auto !important;
+
+      z-index: 20 !important;
+
+      & a,
+      & .sublink {
+        width: 100% !important;
+        padding: 14px 12px !important;
+        font-size: 17px !important;
+        border-radius: 8px !important;
+        transition: background-color 0.3s ease !important;
+        color: var(--white) !important;
+      }
+
+      & a:hover {
+        background-color: rgba(255, 255, 255, 0.08) !important;
+      }
+
+      /*- Estado aberto -*/
+      &.aberto {
+        transform: translateX(0) !important;
+      }
+
+      /*- CTA dentro do painel -*/
+      & .menu-orcamento {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: 100% !important;
+        margin-top: 18px !important;
+        font-size: 15px !important;
+        padding: 15px 10px !important;
+      }
+
+      /*- Serviços (acordeão em mobile) -*/
+      & .nav-services {
+        width: 100% !important;
+        height: auto !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+
+        & .submenu {
+          position: static !important;
+          width: 100% !important;
+          padding: 0 0 0 12px !important;
+          margin: 0 !important;
+
+          background: transparent !important;
+          border: none !important;
+          border-radius: 0 !important;
+
+          transform: none !important;
+          opacity: 1 !important;
+          visibility: visible !important;
+          pointer-events: auto !important;
+
+          max-height: 0 !important;
+          overflow: hidden !important;
+
+          transition: max-height 0.35s ease, padding 0.35s ease !important;
+
+          & a {
+            padding: 12px !important;
+            font-size: 15px !important;
+          }
+        }
+
+        &.aberto .submenu {
+          max-height: 400px !important;
+          padding: 4px 0 8px 12px !important;
+        }
+
+        &.aberto > .sublink::after {
+          transform: rotate(225deg) translateY(-2px) !important;
+        }
+      }
+
+      & .nav-services:hover .submenu,
+      & .nav-services:focus-within .submenu {
+        transform: none !important;
       }
     }
   }
-}
 
-/* CELULARES */
-@media (max-width: 550px) {
-  .main-services {
-    padding: 45px 20px;
+  /*- BACKDROP (fundo clicável abaixo do header) -*/
+  body.menu-aberto::after {
+    content: "" !important;
+    position: fixed !important;
+    inset: 0 !important;
+    background: rgba(0, 0, 0, 0.55) !important;
+    z-index: 900 !important;
+    backdrop-filter: blur(2px) !important;
+    pointer-events: all !important;
+    cursor: pointer !important;
+  }
 
-    & .services {
-      & .title {
-        & .main-title {
-          & h2 {
-            font-size: 30px;
-          }
+  /*- Garante que o header e o painel fiquem acima do backdrop -*/
+  .cabecalho {
+    z-index: 1000 !important;
+  }
+
+  /*- Garante que o painel mobile também fique clicável -*/
+  .cabecalho .menu {
+    pointer-events: all !important;
+    z-index: 20 !important;
+  }
+
+  /*------------------------------*/
+  /*        INTRO / HOME          */
+  /*------------------------------*/
+  .intro .inicio {
+    height: auto !important;
+    min-height: 100vh !important;
+    max-height: none !important;
+    padding: 110px 5% 60px !important;
+
+    & .conteudo-inicio {
+      flex-direction: column !important;
+      text-align: center !important;
+
+      & .texto-inicio {
+        max-width: 100% !important;
+
+        & h1 {
+          font-size: clamp(28px, 5vw, 38px) !important;
         }
-
-        & .text {
-          & p {
-            font-size: 14px;
-          }
+        & p {
+          max-width: 100% !important;
+          margin-left: auto !important;
+          margin-right: auto !important;
+        }
+        & .botoes-inicio {
+          justify-content: center !important;
         }
       }
 
+      & .ilustracao {
+        width: 100% !important;
+        padding: 20px 0 !important;
+        & .janela {
+          width: min(100%, 400px) !important;
+          height: 300px !important;
+        }
+      }
+    }
+  }
+
+  /*- Serviços principais (2 colunas) -*/
+  .main-services {
+    padding: 70px 20px !important;
+
+    & .services {
+      width: 90% !important;
+      gap: 30px !important;
+
+      & .title .main-title h2 { font-size: 32px !important; }
+
       & .container-grid {
-        grid-template-columns: 1fr;
-        gap: 18px;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 20px !important;
 
         & .service-card {
-          padding: 20px;
+          padding: 20px !important;
+
+          & .icon {
+            width: 60px !important;
+            height: 60px !important;
+            margin-bottom: 12px !important;
+          }
+          & h3 { font-size: 19px !important; }
         }
       }
     }
   }
-}
 
-
-
-/* PORTIFÓLIO */
-
-/* TABLETS */
-
-@media (max-width: 1000px) {
-
+  /*- Portfólio -*/
   .portifolio {
-    padding: 80px 5%;
+    padding: 80px 5% 90px !important;
+    min-height: auto !important;
 
-    & .cases {
+    & .cases .portifolio-header {
+      margin-bottom: 50px !important;
+      & h3 { font-size: 2em !important; }
+    }
 
-      & .portifolio-header {
-        margin-bottom: 50px;
+    & .cases .portifolio-content .projeto {
+      width: 100% !important;
+      height: 480px !important;
+
+      & .projeto-header {
+        padding: 30px !important;
+        & .projeto-logo {
+          width: 70px !important;
+          height: 70px !important;
+        }
       }
 
-      & .portifolio-content {
+      & .projeto-info {
+        padding: 30px !important;
 
-        & .projeto {
-          height: 580px;
+        & .empresa {
+          font-size: clamp(1.6rem, 3.5vw, 2.2rem) !important;
+        }
 
-          & .projeto-header {
-            padding: 35px;
-          }
-
-          & .projeto-info {
-            padding: 35px;
-
-            & .projeto-cols {
-              grid-template-columns: 1fr;
-              gap: 25px;
-
-              & p {
-                max-width: 700px;
-              }
-
-              & .btn-acoes {
-                justify-content: flex-start;
-              }
-            }
-          }
+        & .projeto-cols {
+          grid-template-columns: 1fr !important;
+          gap: 20px !important;
+          align-items: start !important;
         }
       }
     }
   }
-}
 
-/* CELULARES */
+  /*- Sobre nós -*/
+  .about-us {
+    height: auto !important;
+    min-height: 100vh !important;
+    padding: 70px 5% !important;
 
-@media (max-width: 600px) {
-
-  .portifolio {
-    padding: 65px 5% 80px;
-
-    & .cases {
-
-      & .portifolio-header {
-        gap: 18px;
-        margin-bottom: 40px;
-
-        & h1 {
-          font-size: 2.2rem;
-        }
-
-        & p {
-          font-size: 0.95rem;
-          line-height: 1.6;
-        }
+    & .sobre-nos {
+      & .titulo-equipe {
+        margin-bottom: 35px !important;
+        & h2 { font-size: clamp(2rem, 5vw, 3rem) !important; }
       }
 
-      & .portifolio-content {
+      & .equipe-container .equipe-conteudo {
+        grid-template-columns: 1fr !important;
+        justify-items: center !important;
 
-        & .projeto {
-          height: 600px;
-          border-radius: 18px;
+        & .cartao-integrante {
+          width: 100% !important;
+          max-width: 380px !important;
+          min-height: auto !important;
+          padding: 20px 25px 30px !important;
+        }
 
-          & .projeto-img {
-            object-position: center;
-          }
-
-          & .sombra {
-            background: linear-gradient(180deg,
-                rgba(0, 0, 0, 0.1) 0%,
-                rgba(0, 0, 0, 0.2) 30%,
-                rgba(0, 0, 0, 0.8) 65%,
-                rgba(0, 0, 0, 0.95) 100%);
-          }
-
-          & .projeto-header {
-            padding: 25px;
-
-            & .projeto-logo {
-              width: 65px;
-              height: 65px;
-            }
-          }
-
-          & .projeto-info {
-            padding: 25px;
-
-            & .empresa {
-              font-size: 2rem;
-              margin-bottom: 15px;
-            }
-
-            & .projeto-cols {
-              gap: 22px;
-
-              & p {
-                font-size: 0.9rem;
-                line-height: 1.55;
-              }
-
-              & .btn-acoes {
-                flex-wrap: wrap;
-                gap: 10px;
-
-                & a {
-                  padding: 12px 18px;
-                  font-size: 0.8rem;
-                }
-              }
-            }
-          }
+        & .apresentacao-integrante {
+          text-align: center !important;
+          & h3 { font-size: 2rem !important; }
+          & p { text-align: justify !important; }
         }
       }
     }
   }
-}
 
-/* CELULARES PEQUENOS */
-
-@media (max-width: 380px) {
-
-  .portifolio {
-
-    & .cases {
-
-      & .portifolio-header {
-
-        & h1 {
-          font-size: 1.9rem;
-        }
-      }
-
-      & .portifolio-content {
-
-        & .projeto {
-          height: 630px;
-
-          & .projeto-info {
-            padding: 20px;
-
-            & .projeto-cols {
-
-              & .btn-acoes {
-                flex-direction: column;
-                align-items: stretch;
-
-                & a {
-                  width: 100%;
-                  box-sizing: border-box;
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
-
-/* CONTATO */
-
-/* Responsividade */
-@media (max-width: 850px) {
-
+  /*--------------------------------------------------*/
+  /*- CONTATO · QUEBRA DE GRID (2 → 1 coluna) -*/
+  /*--------------------------------------------------*/
   .contato {
-    padding: 50px 6%;
+    padding: 50px 5% !important;
 
     & .main-contato {
-      grid-template-columns: 1fr;
-      gap: 40px;
-      max-width: 600px;
+      grid-template-columns: 1fr !important;
+      gap: 35px !important;
 
       & .info-contato {
-        gap: 22px;
+        & .titulo-contato h1 { font-size: 2.5em !important; }
 
         & .contatos {
-          gap: 18px;
-        }
-      }
+          gap: 18px !important;
 
-      & .form-contato {
-        padding: 25px;
-      }
-    }
-  }
-}
+          & .card-contato {
+            min-height: 65px !important;
 
-@media (max-width: 500px) {
-
-  .contato {
-
-    & .main-contato {
-
-      & .info-contato {
-
-        & .titulo-contato {
-
-          & h1 {
-            font-size: 28px;
-          }
-
-          & p {
-            font-size: 16px;
+            & .icone-contato {
+              width: 36px !important;
+              height: 36px !important;
+              font-size: 30px !important;
+            }
+            & .texto-contato {
+              & span { font-size: 14px !important; }
+              & p    { font-size: 15px !important; }
+            }
           }
         }
       }
 
       & .form-contato {
-        padding: 22px 18px;
-        border-radius: 20px;
+        padding: 25px !important;
+        border-radius: 20px !important;
 
-        & form {
+        & form .campos-form {
+          grid-template-columns: 1fr !important;
+          gap: 14px !important;
 
-          & .campos-form {
-            grid-template-columns: 1fr;
-            gap: 15px;
+          & .campo.campo-completo { grid-column: auto !important; }
+          & .campo label { font-size: 15px !important; }
+        }
 
-            & .campo {
+        & form .acoes-form {
+          flex-direction: column-reverse !important;
+          gap: 12px !important;
 
-              &.campo-completo {
-                grid-column: auto;
-              }
+          & button,
+          & .anexar-arquivo {
+            width: 100% !important;
+          }
+        }
+      }
+    }
+  }
+
+  /*--------------------------------------------------*/
+  /*- RODAPÉ · QUEBRA DE GRID (3 → 2 colunas) -*/
+  /*--------------------------------------------------*/
+  .footer {
+    padding: 110px 20px 20px !important;
+
+    & .footer-container {
+
+      & .footer-content {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 30px !important;
+        padding: 30px !important;
+
+        & .footer-column.atendimento {
+          grid-column: 1 / -1 !important;
+        }
+
+        &::after { display: none !important; }
+      }
+
+      & .footer-bottom {
+        flex-direction: column !important;
+        gap: 18px !important;
+        padding: 20px 0 0 !important;
+        text-align: center !important;
+
+        & .social-media a {
+          width: 45px !important;
+          height: 45px !important;
+          & img { width: 22px !important; height: 22px !important; }
+        }
+      }
+
+      & .gears .gear {
+        &.gear-top    { font-size: 140px !important; top: -70px !important; }
+        &.gear-filled { font-size: 120px !important; left: 40px !important; }
+        &.gear-small  { font-size: 50px !important; left: 150px !important; top: -55px !important; }
+        &.gear-right  { font-size: 220px !important; opacity: 0.25 !important; }
+      }
+    }
+  }
+
+  /*-----------------------------------------------------*/
+  /*- PÁGINA DO PROJETO: FICHA ABAIXO DO PREVIEW -*/
+  /*-----------------------------------------------------*/
+  .projeto-area {
+    padding: 90px 5% !important;
+
+    & .case .case-container {
+      display: grid !important;
+      grid-template-columns: 1fr !important;
+      gap: 35px !important;
+
+      /*- Desmonta o wrapper para permitir reordenar os filhos -*/
+      & .case-content {
+        display: contents !important;
+      }
+
+      /*- 1º: preview do site -*/
+      & .mostra-site {
+        order: 1 !important;
+        grid-column: 1 !important;
+        grid-row: auto !important;
+
+        & figure {
+          --preview-height: 450px !important;
+        }
+      }
+
+      /*- 2º: ficha do projeto (agora abaixo do preview) -*/
+      & .ficha-projeto {
+        order: 2 !important;
+        grid-column: 1 !important;
+        grid-row: auto !important;
+        position: static !important;
+        top: auto !important;
+        padding: 24px !important;
+      }
+
+      /*- 3º: detalhes do case -*/
+      & .details {
+        order: 3 !important;
+        grid-column: 1 !important;
+        grid-row: auto !important;
+        gap: 30px !important;
+
+        & .info {
+          & h2 { font-size: clamp(1.3rem, 3vw, 1.7rem) !important; }
+          & p  { font-size: 0.95rem !important; line-height: 1.7 !important; }
+        }
+
+        & > p {
+          font-size: 0.95rem !important;
+          padding: 18px !important;
+        }
+      }
+    }
+
+    & .case .outros-cases {
+      margin-top: 70px !important;
+      & h3 { font-size: 1.6rem !important; }
+    }
+  }
+}
+
+
+/*------------------------------*/
+/*      BREAKPOINT ≤ 768px      */
+/*------------------------------*/
+@media (max-width: 768px) {
+
+  /*- Cabeçalho -*/
+  .cabecalho {
+    & .logo {
+      font-size: 16px !important;
+      padding: 7px 18px !important;
+    }
+  }
+
+  /*--------------------------------------------------*/
+  /*- SERVIÇOS · QUEBRA DE GRID (2 → 1 coluna) -*/
+  /*--------------------------------------------------*/
+  .main-services .services {
+    width: 100% !important;
+
+    & .container-grid {
+      grid-template-columns: 1fr !important;
+      gap: 15px !important;
+
+      & .service-card .icon {
+        width: 55px !important;
+        height: 55px !important;
+      }
+    }
+  }
+
+  /*- Portfólio -*/
+  .portifolio .cases .portifolio-content .projeto {
+    height: auto !important;
+    min-height: 460px !important;
+
+    & .projeto-header {
+      padding: 25px !important;
+      & .projeto-logo {
+        width: 60px !important;
+        height: 60px !important;
+      }
+    }
+
+    & .projeto-info {
+      padding: 25px !important;
+
+      & .projeto-cols {
+        & p { font-size: 0.95rem !important; }
+
+        & .btn-acoes {
+          flex-wrap: wrap !important;
+          & a {
+            flex: 1 !important;
+            min-width: 130px !important;
+            justify-content: center !important;
+          }
+        }
+      }
+    }
+  }
+
+  /*- Sobre nós -*/
+  .about-us .sobre-nos .equipe-container .equipe-conteudo {
+    & .cartao-integrante {
+      & .foto-integrante {
+        width: 180px !important;
+        height: 180px !important;
+      }
+      & h3 { font-size: 1.6rem !important; }
+      & p  { font-size: 1.05rem !important; }
+    }
+
+    & .apresentacao-integrante {
+      & .subtitulo-equipe {
+        font-size: 1rem !important;
+        margin-bottom: 20px !important;
+      }
+      & h3 { font-size: 1.7rem !important; }
+      & p  { font-size: 1rem !important; }
+    }
+  }
+
+  /*- Página do projeto -*/
+  .projeto-area .case {
+    & .case-header {
+      margin-bottom: 35px !important;
+
+      & h3 { font-size: 1.8rem !important; }
+      & p  { font-size: 0.95rem !important; }
+    }
+
+    & .case-container {
+      gap: 30px !important;
+
+      & .mostra-site figure {
+        --preview-height: 380px !important;
+      }
+
+      & .ficha-projeto {
+        padding: 20px !important;
+        gap: 20px !important;
+
+        & .title span { font-size: 22px !important; }
+        & .title h2   { font-size: 1.25rem !important; }
+
+        & .solucoes,
+        & .techs {
+          gap: 10px !important;
+          & h3 { font-size: 0.9rem !important; }
+        }
+      }
+
+      & .details { gap: 30px !important; }
+    }
+  }
+
+  /*--------------------------------------------------*/
+  /*- RODAPÉ · QUEBRA DE GRID (2 → 1 coluna) -*/
+  /*--------------------------------------------------*/
+  .footer {
+    padding: 90px 15px 15px !important;
+
+    & .footer-container .footer-content {
+      grid-template-columns: 1fr !important;
+      padding: 25px 20px !important;
+
+      & .footer-column.atendimento {
+        grid-column: auto !important;
+      }
+
+      & .footer-column ul {
+        margin-left: 0 !important;
+      }
+    }
+  }
+}
+
+
+/*------------------------------*/
+/*      BREAKPOINT ≤ 576px      */
+/*------------------------------*/
+@media (max-width: 576px) {
+
+  /*- Intro / Home -*/
+  .intro .inicio {
+    padding: 100px 5% 40px !important;
+
+    & .conteudo-inicio {
+      gap: 25px !important;
+
+      & .texto-inicio {
+        & h1 {
+          font-size: 26px !important;
+          line-height: 1.3 !important;
+        }
+        & p { font-size: 15px !important; }
+
+        & .botoes-inicio {
+          flex-direction: column !important;
+          gap: 12px !important;
+
+          & .botao {
+            width: 100% !important;
+            min-width: 0 !important;
+          }
+        }
+      }
+
+      & .ilustracao .janela {
+        height: 240px !important;
+      }
+    }
+  }
+
+  /*- Serviços -*/
+  .main-services {
+    padding: 50px 15px !important;
+
+    & .services {
+      & .title .main-title h2 { font-size: 26px !important; }
+      & .title .text p        { font-size: 14px !important; }
+    }
+  }
+
+  /*- Portfólio -*/
+  .portifolio {
+    padding: 60px 5% 70px !important;
+
+    & .cases .portifolio-header {
+      margin-bottom: 40px !important;
+
+      & h3 { font-size: 1.7em !important; }
+      & p  { font-size: 0.95rem !important; }
+    }
+
+    & .cases .portifolio-content .projeto {
+      min-height: 420px !important;
+
+      & .projeto-info {
+        padding: 20px !important;
+
+        & .empresa {
+          font-size: 1.5rem !important;
+          margin-bottom: 12px !important;
+        }
+
+        & .projeto-cols {
+          & p { font-size: 0.9rem !important; }
+
+          & .btn-acoes {
+            flex-direction: column !important;
+            width: 100% !important;
+
+            & a {
+              width: 100% !important;
+              padding: 12px 20px !important;
+              font-size: 0.85rem !important;
             }
           }
-
-          & .acoes-form {
-            flex-wrap: wrap;
-
-            & button {
-              flex: 1;
-            }
-          }
-
-          & .aviso-form {
-            line-height: 1.5;
-          }
         }
       }
     }
   }
-}
 
-
-
-/* PORTIFÓLIO */
-
-/* PORTIFÓLIO ÁREA */
-/* TABLETS E NOTEBOOKS */
-
-@media (max-width: 1000px) {
-  .projeto-area {
-    padding: 55px 4%;
-
-    .case-container {
-      grid-template-columns: minmax(0, 1.5fr) minmax(270px, 0.9fr);
-      gap: 30px;
-    }
-
-    .ficha-projeto {
-      padding: 24px;
-    }
-
-    .mostra-site figure {
-      --preview-height: 500px;
-    }
-  }
-}
-
-/* DISPOSITIVOS MENORES */
-
-@media (max-width: 750px) {
-  .projeto-area {
-    padding: 45px 5%;
-
-    .case-header {
-      margin-bottom: 35px;
-    }
-
-    .case-container {
-      display: flex;
-      flex-direction: column;
-      gap: 35px;
-    }
-
-    .case-content {
-      width: 100%;
-      gap: 40px;
-    }
-
-    .ficha-projeto {
-      position: relative;
-      top: auto;
-
-      width: 100%;
-      order: 2;
-    }
-
-    .mostra-site {
-      figure {
-        --preview-height: 450px;
-
-        img {
-          transition: none;
-        }
-
-        &:hover img {
-          transform: none;
-        }
-      }
-    }
-
-    .details {
-      gap: 35px;
-    }
-
-    .outros-cases {
-      margin-top: 65px;
-    }
-  }
-}
-
-/* CELULARES */
-
-@media (max-width: 480px) {
-  .projeto-area {
-    padding: 35px 5%;
-
-    .case-header {
-      h3 {
-        font-size: 2rem;
-      }
-
-      p {
-        font-size: 0.95rem;
-      }
-    }
-
-    .ficha-projeto {
-      padding: 22px;
-
-      .title {
-        h2 {
-          font-size: 1.3rem;
-        }
-
-        span {
-          font-size: 24px;
-        }
-      }
-    }
-
-    .mostra-site figure {
-      --preview-height: 350px;
-    }
-
-    .details {
-      gap: 30px;
-
-      >p {
-        padding: 18px;
-      }
-    }
-
-    .outros-cases {
-      margin-top: 50px;
-    }
-  }
-}
-
-
-/* SOBRE NÓS */
-
-@media (max-width: 750px) {
+  /*- Sobre nós -*/
   .about-us {
-    padding: 60px 6%;
+    padding: 50px 5% !important;
 
-    .titulo-equipe {
-      margin-bottom: 40px;
+    & .sobre-nos .titulo-equipe h2 {
+      font-size: 1.8rem !important;
     }
 
-    .equipe-indicadores {
-      width: 100%;
-    }
+    & .sobre-nos .equipe-container {
 
-    .equipe-conteudo {
-      grid-template-columns: 1fr;
-      gap: 40px;
-    }
-
-    .cartao-integrante {
-      width: 100%;
-      max-width: 330px;
-      margin: 0 auto;
-    }
-
-    .apresentacao-integrante {
-      .subtitulo-equipe {
-        margin-bottom: 20px;
+      & .equipe-indicadores {
+        width: 100% !important;
+        gap: 8px !important;
       }
 
-      h3 {
-        font-size: 2rem;
+      & .equipe-conteudo .cartao-integrante {
+        padding: 15px 20px 25px !important;
+
+        & .foto-integrante {
+          width: 150px !important;
+          height: 150px !important;
+          border-width: 5px !important;
+
+          &::after {
+            width: 22px !important;
+            height: 22px !important;
+            bottom: -18px !important;
+          }
+        }
+
+        & h3 {
+          font-size: 1.4rem !important;
+          margin: 20px 0 15px !important;
+        }
+        & p { font-size: 0.95rem !important; }
       }
 
-      p {
-        font-size: 1.05rem;
+      & .equipe-conteudo .apresentacao-integrante {
+        & h3 { font-size: 1.5rem !important; }
+        & p  { font-size: 0.95rem !important; }
       }
     }
+  }
+
+  /*- Contato -*/
+  .contato {
+    padding: 40px 5% !important;
+
+    & .main-contato .info-contato {
+      & .titulo-contato h1 { font-size: 2em !important; }
+      & .titulo-contato p  { font-size: 14px !important; }
+
+      & .contatos .card-contato {
+        min-height: auto !important;
+        padding: 12px !important;
+        gap: 12px !important;
+
+        & .icone-contato {
+          width: 32px !important;
+          height: 32px !important;
+          font-size: 26px !important;
+        }
+        & .texto-contato {
+          & span { font-size: 13px !important; }
+          & p    { font-size: 14px !important; }
+        }
+      }
+    }
+
+    & .main-contato .form-contato {
+      padding: 20px 15px !important;
+      border-radius: 16px !important;
+    }
+  }
+
+  /*- Página do projeto -*/
+  .projeto-area {
+    padding: 80px 5% !important;
+
+    & .case {
+      & .case-header h3 { font-size: 1.5rem !important; }
+
+      & .case-container {
+        & .mostra-site figure {
+          --preview-height: 300px !important;
+        }
+
+        & .ficha-projeto {
+          padding: 18px !important;
+          & .title h2 { font-size: 1.1rem !important; }
+        }
+
+        & .details > p {
+          padding: 15px !important;
+        }
+      }
+
+      & .outros-cases {
+        margin-top: 50px !important;
+
+        & h3 { font-size: 1.4rem !important; }
+
+        & .case-exhibition {
+          min-height: 150px !important;
+          padding: 20px !important;
+          font-size: 0.9rem !important;
+        }
+      }
+    }
+  }
+}
+
+
+/*------------------------------*/
+/*      BREAKPOINT ≤ 400px      */
+/*------------------------------*/
+@media (max-width: 400px) {
+
+  /*- Cabeçalho -*/
+  .cabecalho {
+    padding: 0 4% !important;
+
+    & .logo {
+      font-size: 14px !important;
+      padding: 6px 14px !important;
+    }
+    & .menu-toggle {
+      width: 40px !important;
+      height: 40px !important;
+      & span { width: 24px !important; }
+    }
+  }
+
+  /*- Intro -*/
+  .intro .inicio .conteudo-inicio .texto-inicio h1 {
+    font-size: 23px !important;
+  }
+
+  /*- Sobre nós -*/
+  .about-us .sobre-nos .equipe-container .equipe-conteudo .cartao-integrante {
+    & .foto-integrante {
+      width: 130px !important;
+      height: 130px !important;
+    }
+    & h3 { font-size: 1.25rem !important; }
+  }
+
+  /*- Rodapé -*/
+  .footer .footer-container .footer-content {
+    padding: 20px 15px !important;
   }
 }
