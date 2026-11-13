@@ -609,6 +609,200 @@
 }
 
 
+/* SOBRE NÓS */
+
+/* ANIMAÇÃO DE CARREGAMENTO*/
+@keyframes carregarIndicador {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+.about-us {
+    width: 100%;
+    height: 100vh;
+    padding: 80px 5%;
+    background: var(--black);
+    color: var(--white);
+    
+  .sobre-nos {
+    width: 100%;
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+
+  /* TÍTULO */
+
+  .titulo-equipe {
+    text-align: center;
+    margin-bottom: 55px;
+
+    h2 {
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      font-weight: 700;
+      margin: 0;
+    }
+  }
+
+  .equipe-container {
+    width: 100%;
+  }
+
+  /* INDICADORES */
+
+  .equipe-indicadores {
+    display: flex;
+    gap: 12px;
+    width: 470px;
+    max-width: 100%;
+    margin-bottom: 28px;
+  }
+
+  .indicador {
+    position: relative;
+    flex: 1;
+    height: 4px;
+    padding: 0;
+    border: none;
+    border-radius: 10px;
+    background: var(--dark-blue);
+    overflow: hidden;
+    cursor: pointer;
+
+    transition: transform 0.3s ease;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 0;
+      border-radius: inherit;
+      background: transparent;
+    }
+
+    &:hover {
+      transform: scaleY(1.8);
+    }
+
+    /* INTEGRANTES ANTERIORES */
+
+    &.concluido::before {
+      width: 100%;
+      background: var(--blue);
+    }
+
+    /* INTEGRANTE ATUAL */
+
+    &.ativo::before {
+      background-color: var(--green);
+      animation: carregarIndicador 6s linear forwards;
+    }
+  }
+
+  /* CONTEÚDO DA EQUIPE */
+
+  .equipe-conteudo {
+    display: grid;
+    grid-template-columns: 330px 1fr;
+    align-items: start;
+    gap: 30px;
+  }
+
+  /* CARTÃO DO INTEGRANTE */
+
+  .cartao-integrante {
+    min-height: 480px;
+    padding: 15px 25px 40px;
+    border-radius: 15px;
+    background: var(--dark-blue);
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h3 {
+      margin: 27px 0 25px;
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    p {
+      max-width: 260px;
+      margin: 0;
+      font-size: 1.25rem;
+      line-height: 1.5;
+    }
+  }
+
+  /* FOTO DO INTEGRANTE */
+
+  .foto-integrante {
+    position: relative;
+    width: 210px;
+    height: 210px;
+    margin: 0 auto;
+    border: 7px solid var(--green);
+    border-radius: 50%;
+    overflow: visible;
+
+    img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -22px;
+      left: 50%;
+      width: 27px;
+      height: 27px;
+      border-radius: 50%;
+      background: var(--light-blue);
+      transform: translateX(-50%);
+    }
+  }
+
+  /* APRESENTAÇÃO DO INTEGRANTE */
+
+  .apresentacao-integrante {
+    padding: 0 0 20px;
+
+    .subtitulo-equipe {
+      display: block;
+      margin-bottom: 30px;
+      color: #b8b5ae;
+      font-size: 1.2rem;
+    }
+
+    h3 {
+      margin: 0 0 25px;
+      font-size: 2.5rem;
+      font-weight: 700;
+    }
+
+    p {
+      margin: 0;
+      font-size: 1.2rem;
+      line-height: 1.5;
+      text-align: justify;
+    }
+  }
+}
+
+
 /* CONTATO */
 
 .contato {

@@ -14,6 +14,7 @@
   --black: #141414;
   --white: #fffbed;
   --green: #2d6436;
+  --light-green: #3cab4e;
   --dark-blue: #3d3874;
   --blue: #2417b6;
   --light-blue: #3d7fe1;
@@ -110,29 +111,129 @@ a {
     align-items: center;
     gap: 28px;
 
-    & a {
+    & a,
+    & .sublink {
       font-size: 19px;
       font-weight: 500;
       transition: color 0.3s ease;
+      cursor: pointer;
+    }
 
-      &:hover {
-        color: #9990ff;
-      }
+    & a:hover,
+    & .nav-services:hover > .sublink {
+      color: #9990ff;
     }
   }
+
+  /* MENU DE SERVIÇOS */
+
+  & .nav-services {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 75px;
+
+    & .sublink {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    /* Seta indicativa */
+
+    & .sublink::after {
+      content: "";
+      width: 7px;
+      height: 7px;
+
+      border-right: 2px solid currentColor;
+      border-bottom: 2px solid currentColor;
+
+      transform: rotate(45deg) translateY(-2px);
+      transition: transform 0.3s ease;
+    }
+
+    /* Submenu */
+
+    & .submenu {
+      position: absolute;
+      top: 65px;
+      left: 50%;
+
+      transform: translate(-50%, 12px);
+
+      width: 220px;
+      padding: 12px;
+
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+
+      background-color: var(--dark-blue);
+      border: 1px solid var(--light-blue);
+      border-radius: 14px;
+
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+
+      transition:
+        opacity 0.3s ease,
+        transform 0.3s ease,
+        visibility 0.3s ease;
+
+      & a {
+        width: 100%;
+        padding: 12px 14px;
+
+        font-size: 15px;
+        font-weight: 500;
+        color: var(--white);
+
+        border-radius: 8px;
+
+        transition:
+          background-color 0.3s ease,
+          color 0.3s ease;
+
+        &:hover {
+          background-color: var(--blue);
+        }
+      }
+    }
+
+    /* Abrir submenu */
+
+    &:hover .submenu,
+    &:focus-within .submenu {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translate(-50%, 0);
+    }
+
+    &:hover .sublink::after {
+      transform: rotate(225deg) translateY(-2px);
+    }
+  }
+
+  /* BOTÃO DE ORÇAMENTO */
 
   & .orcamento-topo {
     padding: 15px 10px;
     border-radius: 12px;
 
-    background: linear-gradient(110deg,
-        var(--blue),
-        var(--green));
+    background: linear-gradient(
+      110deg,
+      var(--blue),
+      var(--green)
+    );
 
     font-size: 15px;
     font-weight: 700;
 
-    transition: transform 0.3s ease,
+    transition:
+      transform 0.3s ease,
       filter 0.3s ease;
 
     &:hover {
@@ -141,6 +242,7 @@ a {
     }
   }
 }
+
 
 
 /*----------------------*/
@@ -342,13 +444,14 @@ a {
       }
 
       &:hover {
+        border-color: var(--light-blue);
         color: var(--light-blue);
       }
     }
 
     & .phone {
-      color: var(--light-blue);
-      border: 1px solid var(--light-blue);
+      color: var(--light-green);
+      border: 1px solid var(--light-green);
       border-radius: 30px;
       padding: 5px 13px;
 

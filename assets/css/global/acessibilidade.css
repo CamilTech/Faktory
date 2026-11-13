@@ -304,13 +304,11 @@
           }
 
           & .sombra {
-            background: linear-gradient(
-              180deg,
-              rgba(0, 0, 0, 0.1) 0%,
-              rgba(0, 0, 0, 0.2) 30%,
-              rgba(0, 0, 0, 0.8) 65%,
-              rgba(0, 0, 0, 0.95) 100%
-            );
+            background: linear-gradient(180deg,
+                rgba(0, 0, 0, 0.1) 0%,
+                rgba(0, 0, 0, 0.2) 30%,
+                rgba(0, 0, 0, 0.8) 65%,
+                rgba(0, 0, 0, 0.95) 100%);
           }
 
           & .projeto-header {
@@ -486,7 +484,6 @@
 /* PORTIFÓLIO */
 
 /* PORTIFÓLIO ÁREA */
-
 /* TABLETS E NOTEBOOKS */
 
 @media (max-width: 1000px) {
@@ -598,13 +595,55 @@
     .details {
       gap: 30px;
 
-      > p {
+      >p {
         padding: 18px;
       }
     }
 
     .outros-cases {
       margin-top: 50px;
+    }
+  }
+}
+
+
+/* SOBRE NÓS */
+
+@media (max-width: 750px) {
+  .about-us {
+    padding: 60px 6%;
+
+    .titulo-equipe {
+      margin-bottom: 40px;
+    }
+
+    .equipe-indicadores {
+      width: 100%;
+    }
+
+    .equipe-conteudo {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .cartao-integrante {
+      width: 100%;
+      max-width: 330px;
+      margin: 0 auto;
+    }
+
+    .apresentacao-integrante {
+      .subtitulo-equipe {
+        margin-bottom: 20px;
+      }
+
+      h3 {
+        font-size: 2rem;
+      }
+
+      p {
+        font-size: 1.05rem;
+      }
     }
   }
 }

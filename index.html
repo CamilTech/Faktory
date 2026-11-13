@@ -13,7 +13,8 @@
 
 <body>
 
-  <iframe src="assets/pages/iframes/header.html" class="header-iframe" title="Cabeçalho do site" scrolling="no"></iframe>
+  <iframe src="assets/pages/iframes/header.html" class="header-iframe" title="Cabeçalho do site"
+    scrolling="no"></iframe>
 
   <main>
 
@@ -183,7 +184,6 @@
     </div>
 
 
-
     <div class="portifolio" id="portifolio">
       <div class="cases">
 
@@ -243,6 +243,66 @@
       </div>
     </div>
 
+
+    <div class="about-us" id="sobre-nos">
+      <section class="sobre-nos">
+
+        <div class="titulo-equipe">
+          <h2>Conheça nossa equipe</h2>
+        </div>
+
+        <div class="equipe-container">
+
+          <!-- INDICADORES DOS INTEGRANTES -->
+          <div class="equipe-indicadores" role="group" aria-label="Selecionar integrante">
+
+            <button class="indicador ativo" data-index="0" aria-label="Camila Santos" aria-pressed="true"></button>
+            <button class="indicador" data-index="1" aria-label="Cristiano Thiago" aria-pressed="false"></button>
+            <button class="indicador" data-index="2" aria-label="Arthur Sonsin" aria-pressed="false"></button>
+            <button class="indicador" data-index="3" aria-label="Bruno Marçal" aria-pressed="false"></button>
+
+          </div>
+
+          <!-- CARTÃO E APRESENTAÇÃO -->
+          <div class="equipe-conteudo">
+
+            <div class="cartao-integrante">
+
+              <div class="foto-integrante">
+                <img id="foto-integrante" src="assets/img/equipe/camila.png" alt="Foto de Camila Santos">
+              </div>
+
+              <h3 id="nome-integrante">Camila Santos</h3>
+
+              <p id="cargo-integrante">
+                Designer, Programadora Front-End
+              </p>
+
+            </div>
+
+            <div class="apresentacao-integrante" aria-live="polite">
+
+              <span class="subtitulo-equipe">
+                Aqueles que fazem acontecer
+              </span>
+
+              <h3>Sobre Mim</h3>
+
+              <p id="descricao-integrante">
+                Sou designer e programadora Front-End, responsável por
+                transformar ideias em interfaces visuais funcionais,
+                intuitivas e agradáveis. Gosto de unir criatividade e
+                tecnologia para desenvolver experiências digitais.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+    </div>
 
 
     <div class="contato" id="contact">
@@ -355,5 +415,7 @@
 
 
   <script src="assets/js/script.js"></script>
+  <script src="assets/js/index.js"></script>
 </body>
+
 </html>
