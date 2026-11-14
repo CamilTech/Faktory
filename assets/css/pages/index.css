@@ -470,6 +470,10 @@
 
       /*- Card do projeto: imagem de fundo + sombra + logo + informações -*/
       & .projeto {
+        background: url("https://i.pinimg.com/736x/f7/49/64/f74964bdb9c8df294ed4ebe16655a555.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
         position: relative;
         width: 90%;
         height: 600px;

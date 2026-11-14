@@ -2,20 +2,46 @@
 // HEADER - IFRAME //
 // --------------- //
 
-const headerFrame = document.querySelector('.header-frame');
+const headerFrame = document.querySelector('.header-iframe');
+const footerFrame = document.querySelector('.footer-iframe');
 
 window.addEventListener('message', (event) => {
-  if (event.source !== headerFrame.contentWindow) {
-    return;
-  }
-
   const message = event.data;
-  if (message?.type !== 'header-menu' || typeof message.open !== 'boolean') {
-    return;
+  if (headerFrame && event.source === headerFrame.contentWindow &&
+      message?.type === 'header-menu' && typeof message.open === 'boolean') {
+    if (message.open) {
+      headerFrame.style.setProperty('height', '100vh', 'important');
+      headerFrame.style.setProperty('z-index', '1100', 'important');
+      document.body.classList.add('menu-aberto');
+    } else {
+      headerFrame.style.removeProperty('height');
+      headerFrame.style.removeProperty('z-index');
+      document.body.classList.remove('menu-aberto');
+    }
   }
 
-  headerFrame.classList.toggle('sidebar-open', message.open);
+  if (footerFrame && event.source === footerFrame.contentWindow &&
+      message?.type === 'footer-height' && Number.isFinite(message.height)) {
+    footerFrame.style.height = `${message.height}px`;
+  }
 });
+
+const footer = document.querySelector('.footer');
+if (footer && window.parent !== window) {
+  const reportFooterHeight = () => {
+    window.parent.postMessage({
+      type: 'footer-height',
+      height: Math.ceil(document.documentElement.scrollHeight)
+    }, '*');
+  };
+
+  if ('ResizeObserver' in window) {
+    new ResizeObserver(reportFooterHeight).observe(footer);
+  }
+  window.addEventListener('load', reportFooterHeight);
+  window.addEventListener('resize', reportFooterHeight);
+  reportFooterHeight();
+}
 
 // Header function
 
@@ -27,11 +53,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (!toggle || !menu) return;
 
+  const reportMenuState = (open) => {
+    window.parent.postMessage({ type: 'header-menu', open }, '*');
+  };
+
   const fecharMenu = () => {
+    const estavaAberto = menu.classList.contains('aberto');
     toggle.classList.remove('ativo');
     menu.classList.remove('aberto');
     document.body.classList.remove('menu-aberto');
     toggle.setAttribute('aria-expanded', 'false');
+    if (estavaAberto) reportMenuState(false);
   };
 
   toggle.addEventListener('click', () => {
@@ -39,6 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
     toggle.classList.toggle('ativo', aberto);
     document.body.classList.toggle('menu-aberto', aberto);
     toggle.setAttribute('aria-expanded', aberto);
+    reportMenuState(aberto);
   });
 
   sublink?.addEventListener('click', (e) => {

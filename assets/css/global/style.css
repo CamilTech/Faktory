@@ -56,6 +56,14 @@ a {
   z-index: 100;
 }
 
+body.header-iframe-page {
+  background: transparent !important;
+}
+
+body.header-iframe-page.menu-aberto::after {
+  display: none !important;
+}
+
 
 /*----------------------*/
 /*    FOOTER EXTERNO    */
@@ -94,6 +102,7 @@ a {
   top: 0;
   left: 0;
   z-index: 10;
+  background-color: var(--black);
 
   /*--------------------------*/
   /*           LOGO           */
