@@ -4,20 +4,39 @@
 
 const headerFrame = document.querySelector('.header-iframe');
 const footerFrame = document.querySelector('.footer-iframe');
+let headerMenuOpen = false;
+let headerServicesOpen = false;
+let headerServicesHeight = 75;
+
+const updateHeaderFrame = () => {
+  if (!headerFrame) return;
+
+  if (headerMenuOpen || headerServicesOpen) {
+    const height = headerMenuOpen ? '100vh' : `${headerServicesHeight}px`;
+    headerFrame.style.setProperty('height', height, 'important');
+    headerFrame.style.setProperty('z-index', '1100', 'important');
+  } else {
+    headerFrame.style.removeProperty('height');
+    headerFrame.style.removeProperty('z-index');
+  }
+};
 
 window.addEventListener('message', (event) => {
   const message = event.data;
   if (headerFrame && event.source === headerFrame.contentWindow &&
       message?.type === 'header-menu' && typeof message.open === 'boolean') {
-    if (message.open) {
-      headerFrame.style.setProperty('height', '100vh', 'important');
-      headerFrame.style.setProperty('z-index', '1100', 'important');
-      document.body.classList.add('menu-aberto');
-    } else {
-      headerFrame.style.removeProperty('height');
-      headerFrame.style.removeProperty('z-index');
-      document.body.classList.remove('menu-aberto');
+    headerMenuOpen = message.open;
+    document.body.classList.toggle('menu-aberto', message.open);
+    updateHeaderFrame();
+  }
+
+  if (headerFrame && event.source === headerFrame.contentWindow &&
+      message?.type === 'header-services' && typeof message.open === 'boolean') {
+    headerServicesOpen = message.open;
+    if (message.open && Number.isFinite(message.height)) {
+      headerServicesHeight = Math.max(75, Math.ceil(message.height));
     }
+    updateHeaderFrame();
   }
 
   if (footerFrame && event.source === footerFrame.contentWindow &&
@@ -50,11 +69,27 @@ document.addEventListener('DOMContentLoaded', () => {
   const menu = document.getElementById('menu-principal');
   const navServ = document.querySelector('.nav-services');
   const sublink = navServ?.querySelector('.sublink');
+  const submenu = navServ?.querySelector('.submenu');
+  let pointerOverServices = false;
 
   if (!toggle || !menu) return;
 
   const reportMenuState = (open) => {
     window.parent.postMessage({ type: 'header-menu', open }, '*');
+  };
+
+  const reportServicesState = () => {
+    if (!navServ || !submenu) return;
+
+    const open = pointerOverServices ||
+      navServ.contains(document.activeElement) ||
+      (window.matchMedia('(max-width: 992px)').matches &&
+        navServ.classList.contains('aberto'));
+    window.parent.postMessage({
+      type: 'header-services',
+      open,
+      height: submenu.getBoundingClientRect().bottom
+    }, '*');
   };
 
   const fecharMenu = () => {
@@ -63,20 +98,42 @@ document.addEventListener('DOMContentLoaded', () => {
     menu.classList.remove('aberto');
     document.body.classList.remove('menu-aberto');
     toggle.setAttribute('aria-expanded', 'false');
-    if (estavaAberto) reportMenuState(false);
+    if (estavaAberto) {
+      pointerOverServices = false;
+      navServ?.classList.remove('aberto');
+      reportServicesState();
+      reportMenuState(false);
+    }
   };
 
+  navServ?.addEventListener('pointerenter', () => {
+    pointerOverServices = true;
+    reportServicesState();
+  });
+  navServ?.addEventListener('pointerleave', () => {
+    pointerOverServices = false;
+    reportServicesState();
+  });
+  navServ?.addEventListener('focusin', reportServicesState);
+  navServ?.addEventListener('focusout', () => requestAnimationFrame(reportServicesState));
+
   toggle.addEventListener('click', () => {
-    const aberto = menu.classList.toggle('aberto');
-    toggle.classList.toggle('ativo', aberto);
-    document.body.classList.toggle('menu-aberto', aberto);
-    toggle.setAttribute('aria-expanded', aberto);
-    reportMenuState(aberto);
+    if (menu.classList.contains('aberto')) {
+      fecharMenu();
+      return;
+    }
+
+    menu.classList.add('aberto');
+    toggle.classList.add('ativo');
+    document.body.classList.add('menu-aberto');
+    toggle.setAttribute('aria-expanded', 'true');
+    reportMenuState(true);
   });
 
   sublink?.addEventListener('click', (e) => {
     e.preventDefault();
     navServ.classList.toggle('aberto');
+    reportServicesState();
   });
 
   // Fecha ao clicar em qualquer link do menu
