@@ -1,0 +1,246 @@
+@import "../../css/global/style.css";
+
+main {
+  margin-top: 100px;
+  background-color: var(--white);
+  color: var(--black);
+}
+
+h3 {
+  font-size: 25px;
+}
+
+
+/*---------------------*/
+/* CABEÇALHO DA PÁGINA */
+/*---------------------*/
+
+.header-services {
+  color: var(--white);
+
+  & .inner-content {
+    display: grid;
+    grid-auto-flow: column;
+    align-items: center;
+    padding: 70px;
+
+    background:
+      linear-gradient(160deg,
+        var(--black) 0%,
+        #23103f 50%,
+        var(--blue) 100%);
+
+    & .text-container {
+      display: flex;
+      flex-direction: column;
+      gap: 50px;
+      margin-left: 80px;
+
+      & .title {
+        display: flex;
+        flex-direction: row;
+
+        & .gear {
+          position: absolute;
+          font-size: 50px;
+          top: 3em;
+          left: 2em;
+        }
+      }
+
+
+    }
+
+    & .icon-container {
+      display: flex;
+      justify-content: flex-end;
+
+      & .icon-box {
+        padding: 8px;
+        border-radius: 50px;
+        background-color: var(--dark-blue);
+
+        & .icon-text {
+          display: flex;
+          gap: 5px;
+
+          & p:hover,
+          a:hover {
+            cursor: pointer;
+            color: var(--light-green);
+          }
+        }
+      }
+    }
+  }
+}
+
+
+/*--------------------*/
+/* CONTEÚDO DA PÁGINA */
+/*--------------------*/
+
+.services-content {
+  display: grid;
+  grid-auto-flow: column;
+  gap: 80px;
+  padding: 50px 80px;
+
+  & .img-area {
+    img {
+      max-width: 33em;
+    }
+  }
+}
+
+
+/*----------------------*/
+/* FORMULÁRIO DA PÁGINA */
+/*----------------------*/
+
+.content-form {
+  display: grid;
+  grid-auto-flow: column;
+  gap: 50px;
+  padding: 50px 80px;
+
+  & .form-text{
+    img{
+      max-width: 70%;
+    }
+  }
+}
+
+
+/*------------*/
+/* FORMULÁRIO */
+/*------------*/
+
+.formulario {
+  width: 100%;
+  padding: 35px;
+  box-sizing: border-box;
+
+  background: var(--black);
+  border-radius: 28px;
+  color: var(--white);
+
+  & form {
+    width: 100%;
+
+    & .campos-form {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 17px 28px;
+
+      & .campo {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+
+        & label {
+          font-size: 17px;
+          font-weight: 700;
+        }
+
+        & input,
+        & textarea {
+          width: 100%;
+          min-width: 0;
+          min-height: 50px;
+          padding: 8px 12px;
+          box-sizing: border-box;
+
+          background: #f2efeb;
+          border: 1px solid #8580b0;
+          border-radius: 8px;
+          outline: none;
+
+          font-family: inherit;
+          font-size: 15px;
+
+          transition: 0.2s ease;
+
+          &:focus {
+            border-color: var(--blue);
+            box-shadow: 0 0 0 2px rgba(36, 23, 182, 0.12);
+          }
+        }
+
+        & textarea {
+          height: 40px;
+          resize: vertical;
+        }
+
+        &.campo-completo {
+          grid-column: 1 / -1;
+        }
+      }
+    }
+
+    /*- Botão de anexar arquivo e botão de enviar -*/
+    & .acoes-form {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      margin-top: 16px;
+
+      & .anexar-arquivo {
+        min-height: 41px;
+        padding: 0 15px;
+        box-sizing: border-box;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border: 1px dashed #8580b0;
+        border-radius: 8px;
+
+        font-size: 13px;
+        font-weight: 700;
+        cursor: pointer;
+
+        transition: 0.3s ease;
+
+        &:hover {
+          background: #eeebf7;
+          border-color: var(--blue);
+        }
+
+        /*- Esconde o input nativo; o label funciona como botão -*/
+        & input {
+          display: none;
+        }
+      }
+
+      & button {
+        width: 135px;
+        height: 41px;
+
+        background: var(--blue);
+        border: none;
+        border-radius: 9px;
+
+        color: var(--white);
+        font-family: inherit;
+        font-size: 17px;
+        font-weight: 700;
+
+        cursor: pointer;
+        transition: 0.3s ease;
+
+        &:hover {
+          background: var(--dark-blue);
+          transform: translateY(-2px);
+        }
+      }
+    }
+
+    & .aviso-form {
+      margin: 16px 0 0;
+      font-size: 12px;
+    }
+  }
+}
