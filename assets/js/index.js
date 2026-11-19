@@ -25,7 +25,7 @@ const integrantes = [
   {
     nome: "Bruno Marçal",
     cargo: "Administrador de Banco de Dados",
-    foto: "https://i.pinimg.com/736x/59/aa/33/59aa3395d6d06ab25f482de45118e9b5.jpg",
+    foto: "assets/componentes/about-us/bruno.jpeg",
     descricao: "Sou responsável pela administração e organização dos bancos de dados do projeto. Trabalho com armazenamento, gerenciamento e estruturação das informações, buscando garantir a integridade, a segurança e o bom funcionamento dos dados."
   }
 
