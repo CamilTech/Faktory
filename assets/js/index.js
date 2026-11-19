@@ -4,21 +4,21 @@ const integrantes = [
   {
     nome: "Camila Santos",
     cargo: "Designer, Programadora Front-End",
-    foto: "https://i.pinimg.com/736x/4a/6f/e8/4a6fe8f64bba07c5212d73c5098a8a90.jpg",
+    foto: "assets/componentes/about-us/camila.jpeg",
     descricao: "Sou designer e programadora Front-End, responsável por transformar ideias em interfaces visuais funcionais, intuitivas e agradáveis. Gosto de unir criatividade e tecnologia para desenvolver experiências digitais."
   },
 
   {
     nome: "Cristiano Thiago",
     cargo: "Programador Full-Stack",
-    foto: "https://i.pinimg.com/736x/08/43/67/0843673fb1a3887556593d28cfb433d1.jpg",
+    foto: "assets/componentes/about-us/cristiano.jpeg",
     descricao: "Sou programador Full-Stack e trabalho no desenvolvimento de aplicações, atuando tanto no Front-End quanto no Back-End. Tenho interesse em criar soluções eficientes, explorar novas tecnologias e desenvolver sistemas que atendam às necessidades dos usuários."
   },
 
   {
     nome: "Arthur Sonsin",
     cargo: "Diretor de projeto",
-    foto: "https://i.pinimg.com/1200x/cf/5a/c5/cf5ac5776eb001de2afdfeb4ab0f1bcf.jpg",
+    foto: "assets/componentes/about-us/sonsin.jpeg",
     descricao: "Sou responsável pela direção e organização do projeto, acompanhando as etapas de desenvolvimento e garantindo que as atividades sejam realizadas de maneira organizada. Busco manter a equipe alinhada e os objetivos bem definidos."
   },
 
